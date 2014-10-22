@@ -76,21 +76,6 @@ An app where users can post Activities and search for other Activities based on 
 
 ============================
 
-Thursday 9AM - Static page done with classes and IDs defined
-Thursday noon - CSS styling to make static pages look good
-Friday noon - collect image resources and plug them into pages
-Saturday noon - Javascript animations
-
-Wednesday 9pm Define ActiveRecord models and database schema (create tables, migrations)
-Thursday noon Define helper methods for models (see ERD)
-Friday dinnertime Define routes in actions.rb (refer to wireframe for needed GETs and POSTs)
-
-
-
-
-Saturday 6PM - 
-Sunday 9AM - Minimal app done
-
 
 ### Future TODOs
 
