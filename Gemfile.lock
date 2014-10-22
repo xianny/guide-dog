@@ -22,6 +22,10 @@ GEM
     bond (0.4.3)
     builder (3.1.4)
     coderay (1.1.0)
+    factory_girl (4.5.0)
+      activesupport (>= 3.0.0)
+    faker (1.4.3)
+      i18n (~> 0.5)
     i18n (0.6.9)
     method_source (0.8.2)
     minitest (4.7.5)
@@ -79,6 +83,8 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
+  factory_girl (~> 4.0)
+  faker
   pry
   puma
   rake
