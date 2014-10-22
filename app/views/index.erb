@@ -1,1 +1,18 @@
+requires @activity, @user, etc as variables -->
+
 <h1>Home Page</h1>
+
+
+
+<body>
+
+<div> <%= erb :'user/:id' %> -- shows user profile info 
+<div>
+<div><%= erb :'user/:id/activities/new' %></div>
+<p> <%= erb :'user/:id/activities' %> </p>
+
+
+</div>
+
+
+===================
