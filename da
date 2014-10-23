@@ -1,0 +1,29 @@
+[33mcommit 353491b728ad529c1449f8ec6c02a2f077a4e377[m
+Author: christoffer-Van <christoffer.jjohansen@gmail.com>
+Date:   Thu Oct 23 21:50:19 2014 +0000
+
+    static index created
+
+[33mcommit 240fc978e5ac6828656d0c23c069214d1a8e04ee[m
+Author: Xianny <xianny@gmail.com>
+Date:   Wed Oct 22 15:16:24 2014 -0700
+
+    remove tester file
+
+[33mcommit 07cdf6ac26d4b6dfac4a05d2818250efe56a51a1[m
+Author: christoffer-Van <christoffer.jjohansen@gmail.com>
+Date:   Wed Oct 22 22:08:25 2014 +0000
+
+    comment
+
+[33mcommit 42ec02809755793107f22b0560b5d2398e5b4dd6[m
+Author: Xianny <xianny@gmail.com>
+Date:   Wed Oct 22 14:56:56 2014 -0700
+
+    Initial DB connection setup
+
+[33mcommit 0aa87217e284cc14720974edf6282ed1fd346ef2[m
+Author: Xianny <xianny@gmail.com>
+Date:   Wed Oct 22 14:17:35 2014 -0700
+
+    Copied files from sinatra skeleton
