@@ -1,6 +1,7 @@
 class Activity < ActiveRecord::Base
   belongs_to :user
   has_many :relevances
+  has_many :reviews
   has_many :tags, through: :relevances
 
   before_validation :set_defaults, on: :create
