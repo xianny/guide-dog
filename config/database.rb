@@ -1,16 +1,9 @@
 configure do
   # Log queries to STDOUT and use local SQLite3 db in development
-  if Sinatra::Application.development?
-    ActiveRecord::Base.logger = Logger.new(STDOUT)
-
-    set :database, {
-      adapter: "sqlite3",
-      database: "db/db.sqlite3"
-    }
-
-  else
+  if Sinatra::Application.production?
 
   # Use Heroku Postgresql db otherwise
+    puts "ESTABLISHING CONNECTION"
     ActiveRecord::Base.establish_connection(
       adapter: 'postgresql',
       encoding: 'unicode',
@@ -22,7 +15,17 @@ configure do
       port: 5432,
       min_messages: 'error'
     )
-    puts "Connection established"
+    puts "CONNECTION ESTABLISHED..."
+   
+  else
+    ActiveRecord::Base.logger = Logger.new(STDOUT)
+
+    set :database, {
+      adapter: "sqlite3",
+      database: "db/db.sqlite3"
+    }
+
+
   end
 
   # Load all models from app/models, using autoload instead of require
