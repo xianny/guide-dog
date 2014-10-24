@@ -127,26 +127,32 @@ end
 #### REVIEWS ####
 #### ------- ####
 
-
-# Display all reviews associated with the activity
-get '/users/:u_id/activities/:a_id/reviews' do
-
-end
+# Display a single review or all reviews
+## only available as erb template nested within activities/:a_id
 
 # Display form to post new review
-get '/users/:u_id/activities/:a_id/reviews/new' do
-
-end
+## only available as erb template nested within activities/:a_id
 
 # Post new review
-post '/users/:u_id/activities/:a_id/reviews' do
-  user = User.find(session[:user_id])
+post '/activities/:a_id/reviews' do
+  redirect '/' if !session[:user_id]
+  reviewer =   User.find(session[:user_id])
   author = User.find(params[:u_id])
+  
+  @activity = Activity.find(params[:a_id])
 
-end
+  @review = Review.create(
+    comment: params[:comment],
+    rating: params[:rating],
+    activity_id: params[:a_id],
+    user_id: session[:user_id] 
+  )
 
-# Display a single review
-get '/users/:u_id/activities/:a_id/reviews/:r_id' do
+  if @review.save
+    redirect "users/#{params[:u_id]}/activities/#{params[:a_id]}"
+  else
+    erb :'activities/show'
+  end
 
 end
 
