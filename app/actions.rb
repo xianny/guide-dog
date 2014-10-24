@@ -98,6 +98,8 @@ get '/users/:u_id/activities/new' do
   # end
 end
 
+
+
 # Create new activity
 post '/users/:u_id/activities' do
   user = User.find(params[:u_id])
@@ -163,6 +165,7 @@ end
 # }
 
 post '/activities' do
+  #-- strip duplicate tags from input (tag1, tag2, tag3)
   # generate collection of activities based on parameters
   # set as instance variable @activities
   # call erb: 'activities/index'
