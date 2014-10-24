@@ -1,7 +1,39 @@
-<!-- Yields directly from layout.erb, so its structure is equivalent to activities/index
-  Login screen
+<!-- LOGIN SCREEN. Yields directly from layout.erb, so its structure is equivalent to activities/index
+  Successful login will redirect to users/id (show user's personal home page)
+  ===========================================================================
   takes @user as a variable (defaults to previous login attempt or User.new)
     Need to collect parameters 
         :username
         :password
     and POST to '/sessions' -->
+
+<!-- If submission was invalid, will display error messages. 
+  This <div> will not be rendered at all if there are no errors -->
+    <% if @user.errors.any? %>
+      <div class="errors">
+        <strong>Some issues with your submission, please fix them:</strong>
+        <ul>
+          <% @user.errors.full_messages.each do |error_message| %>
+            <li><%= error_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <!-- end errors -->
+
+  <!-- collects input for login -->
+    <form action = "/sessions" method = "post">
+      <div>
+        <label>Username:</label>
+        <input type="text" value="<%= @user.username %>" name="username" >
+      </div>
+      <div>
+        <label>Password:</label>
+        <input type="password" name="password">
+      </div>
+      <div>
+        <input type="submit" value="Submit">
+      </div>
+
+    </form>
+  <!-- end input form -->
