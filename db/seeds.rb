@@ -40,7 +40,7 @@ users.each do |user|
     activity = user.activities.create(
       title: "Some Cool Activity Title",
       location: "#{Faker::Address.city} #{Faker::Address.state_abbr}",
-      cost: rand(4)
+      cost: rand(4),
       content: "Try doing this stuff. And then this other stuff! #{Faker::Lorem.paragraph}"
     )
     activity.save if activity.valid?

@@ -58,7 +58,16 @@
             <h3><i class="fa fa-angle-right"></i> MAIN DIV -- ERB</h3>
             <div class="row mt">
               <div class="col-lg-12">
-              <p>ASDASDA </p>
+              <!-- xianny insert -->
+                <% @activities.each do |activity| %>
+                  <% @activity = activity %>
+                  <a href "/activities/<%= activity.id %>">
+                    <div>
+                    <%= erb :'activities/show_short' %>  
+                    </div>
+                  </a>
+                <% end %>
+                <!-- end xianny insert -->
               </div>
             </div>
       
