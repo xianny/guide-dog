@@ -4,12 +4,14 @@
   <div>
 
   <!-- show summary (list version) of activity (icons, tags, title, rating) -->
+  <div class="something">
   <%= erb :'activities/show_short' %>
+  </div>
 
   <!-- show detailed content of activity -->
   <%= @activity.content %>
 
-  <!-- displays new review submission box -->
+  <!-- generate HTML to display submission box for new review -->
   <%= erb :'reviews/new' %>
   <!-- end new review submission -->
 
