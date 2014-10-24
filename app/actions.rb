@@ -89,7 +89,7 @@ end
 
 # Display form to create new activity (by current user)
 get '/users/:u_id/activities/new' do
-  erb :'activities/new'
+  erb :'activities/new', layout: :'activities/layout'
 end
 
 # Create new activity
@@ -107,7 +107,7 @@ post '/users/:u_id/activities' do
   if activity.save
     redirect 'users/#{params[:u_id]}'
   else
-    erb :'activities/new'
+    erb :'activities/new', layout: :'activities/layout'
   end
 
 end
@@ -115,7 +115,7 @@ end
 # Display single activity
 get '/activities/:a_id' do 
   @activity = Activity.find(params[:a_id])
-  erb :'activities/show'
+  erb :'activities/show', layout: :'activities/layout'
 end
 
 #### REVIEWS ####
@@ -158,5 +158,5 @@ get '/activities' do
   # set as instance variable @activities
   # call erb: 'activities/index'
   @activities = Activity.all
-  erb :'activities/index'
+  erb :'activities/index', layout: :'activities/layout'
 end
