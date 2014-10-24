@@ -54,17 +54,52 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper site-min-height">
-            <h3><i class="fa fa-angle-right"></i> Logged in profile</h3>
+            <h3><i class="fa fa-angle-right"></i> Viewing list</h3>
             <div class="row mt">
               <div class="col-lg-12">
 
                   <div class="row mt">
                     
-                    <%= erb :'activities/create' %>
+                    <%= erb :'/activities/unique' %>
 
                     <div class="content col-lg-12">
                       
-                      <%= erb :'activities/unique' %>
+
+
+
+                      <div class="list_view">
+                        <div class="list_text">
+                          <p>Salvia quinoa brunch locavore health goth, Portland cornhole tousled polaroid. Keffiyeh raw denim small batch, readymade occupy fanny pack lomo. 8-bit Marfa Schlitz distillery Shoreditch kogi meditation, roof party scenester. Wolf crucifix Kickstarter, Shoreditch farm-to-table pork belly brunch Banksy post-ironic Etsy try-hard church-key. Cred small batch street art heirloom. Carles cray health goth photo booth asymmetrical meditation disrupt kale chips viral. Seitan lo-fi fanny pack, artisan occupy polaroid sustainable.
+                          </p>
+                        </div>
+                        <div class"list_tags"></div>
+                      </div>
+
+
+
+
+                      <div class="comment_input">
+                      
+                        <div class="comment_avatar"></div>
+
+                        <form>
+                            <input value="ERB USER" type="hidden" name="author" placeholder="Text input">
+                            
+                            <textarea class="form-control comment_margin comment_text" rows="4"></textarea>
+
+                            <input class="comment_margin comment_button" type="submit" value="submit">
+
+                          </form>
+                      </div>                      
+
+
+                      <div class="comments">
+                        <textarea class="form-control"></textarea>
+                        
+                      </div>
+
+
+
 
                     </div>
 

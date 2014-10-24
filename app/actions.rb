@@ -5,7 +5,7 @@ end
 
 # User profile page
 get '/user' do
-  erb :'user/index'
+  erb :'users/index'
 end
 
 get '/activities' do
