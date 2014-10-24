@@ -1,15 +1,6 @@
-<!-- called from activities/show
-@activity available as variable
-DOES NOT SHOW UP IF NOT LOGGED IN -->
-
-
 <div class="comment_input">
     
-    <!-- current user's avatar when logged in -->
-  <div class="comment_avatar">
-    <img src="<%= current_user.avatar %>">
-  </div>
-  <!-- end log in -->
+  <div class="comment_avatar"></div>
 
   <form>
     <input value="ERB USER" type="hidden" name="author" placeholder="Text input">
@@ -17,3 +8,10 @@ DOES NOT SHOW UP IF NOT LOGGED IN -->
     <input class="comment_margin comment_button" type="submit" value="submit">
   </form>
 </div> 
+
+
+
+
+<div class="comments">
+  <textarea class="form-control"></textarea>
+</div>

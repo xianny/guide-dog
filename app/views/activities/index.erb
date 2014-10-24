@@ -1,56 +1,70 @@
-<!-- this template receives a variable called @activities
+ <!-- this template receives a variable called @activities
 @activities is a Collection of Activity objects (pre-selected and sorted)
 this template will render all Activities in the Collection in a list -->     
 
-<!-- yield from layout.erb -->
-
-  <!-- will only be rendered if logged in -->
-  <% if session[:user_id] %>
-
-    <div class="user avatar"
-      <img src="<%= current_user.avatar %>" />
-    </div>
-
-    <div class="create button">
-      
-      <a href="/users/<%= session[:user_id] %>/activities/new">
-        <button class="Create New Activity"></button>
-      </a>
-
-    </div>
-
-  <% end %>
-  <!-- end rendered if logged in -->
-
-  <!-- display search parameters,
-    will only be rendered if displaying search results
-    otherwise will display all activities, or all activities belonging to specific user  -->
-  <% if @search %>
-
-    <div class="tags, location, icons">
-      <!-- work in progress! -->
-    </div>
-
-  <% end %>
-  <!-- end search parameters -->
+<!-- yield from layout.erb --> 
 
 
-  <!-- list of ALL activities -->
-  <div class="container for activity list">
 
-    <% @activities.each do |activity| %>
-      <% @activity = activity %>
 
-      <!-- this is a list item representing one Activity
-          it links to details page for that activity 
-          it will repeat itself for all activities -->
-      <a href = "/activities/<%= activity.id %>">
-        <div class="container for activity summary">
-          <%= erb :'activities/show_short' %>  
-        </div>
-      </a>
-      <!-- end individual activity -->
+ <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+     <section id="main-content">
+          <section class="wrapper site-min-height">
+            <h3><i class="fa fa-angle-right"></i> Logged in sadad</h3>
+            <div class="row mt">
+              <div class="col-lg-12">
 
-    <% end %>
-  </div>
-  <!-- end list of all activities -->
+                  
+                       <!-- will only be rendered if logged in 
+                           contains avatar and create button-->                   
+                    <% if session[:user_id] %> 
+                    <div class="row mt">    
+
+                        <a class="create" href="/users/<%= session[:user_id] %>/activities/new">
+                          <div class="create_button">
+                            <h4>Create New Activity</h4>
+                          </div>
+                        </a>
+                    </div>
+                    <% end %>
+                      <!-- end rendered if logged in --> 
+
+                       <!-- displays search parameters, if there are any -->
+                        <!--       <% if @search %> -->  <!-- need to make a div for on html -->
+                        <!--       <div class="tags, location, icons"> -->
+                            <!-- work in progress! -->
+                        <!--    </div>
+                        <% end %> -->
+                        <!-- end search parameters -->
+
+
+                    <!-- content start div -->
+
+                       
+                      <% @activities.each do |activity| %>
+                        <% @activity = activity %>
+                        <!-- this is a list item representing one Activity
+                            it links to details page for that activity 
+                            it will repeat itself for all activities -->
+                        <a href="/activities/<%= activity.id %>">
+                          <div class="create_button">
+                            <%= erb :'activities/show_short' %>
+                          </div>
+                        </a>
+                        <!-- end individual activity -->
+                      <% end %>
+
+                    <!-- content end div -->
+
+              
+
+
+                  
+              </div>
+            </div>
+          </section>
+      </section>
+

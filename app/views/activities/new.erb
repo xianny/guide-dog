@@ -11,6 +11,171 @@
   POST to '/users/<%= session[:user_id] %>/activities'
 -->
 
+
+ <!--main content start-->
+     <section id="main-content">
+          <section class="wrapper site-min-height">
+            <h3><i class="fa fa-angle-right"></i> Logged in sadad</h3>
+            <div class="row mt">
+              <div class="col-lg-12">
+
+                  
+                <form action = "/users/<%= session[:user_id] %>/activities" method = "post">
+                   
+                    <div class="row mt">      
+                      <div class="create create_button">
+                        <h4><input type="text" value="<%= @activity.title %>" name="title" ></h4>
+                      </div>
+                    </div>
+
+
+                     <!-- display selectors for cost, social, at_home -->
+
+                  <input type="true/false " name="social">
+                        <img src=" " alt="social icon"/>
+                        <img src="" alt="alone icon" />
+                      
+
+
+
+                     
+                    <input type="true/false " name="at_home">
+                        <img src=" " alt="at home icon" />
+                        <img src="" alt="outdoors icon" />
+                
+
+
+            
+                      <img src= "<%= @activity.cost_img %>" />
+                       <input type="choose from 0, 1, 2, 3 " name="cost">
+                       <img src= "<%= @activity.cost_img %>" />
+                 
+                    <!-- end icon display -->
+
+
+                    <!-- display tags -->
+
+                
+                    <input list="tags" name="tag1" multiple>
+                    <datalist id="tags">
+                      <% all_tags.each do |tag| %>
+                      <option value = "<%=tag.name%>">
+                      <% end %>
+                    </datalist>
+                    </input>
+
+                     <input list="tags" name="tag2" multiple>
+                    <datalist id="tags">
+                      <% all_tags.each do |tag| %>
+                      <option value = "<%=tag.name%>">
+                      <% end %>
+                    </datalist>
+                    </input>
+
+                     <input list="tags" name="tag3" multiple>
+                    <datalist id="tags">
+                      <% all_tags.each do |tag| %>
+                      <option value = "<%=tag.name%>">
+                      <% end %>
+                    </datalist>
+                    </input>
+
+                    <!-- end tags -->
+
+                      
+                  <!-- submit new content -->
+                  <div class="list_view">
+                      <div class="list_text">
+                        <p>
+                          <input type="text" value="<%= @activity.content %>" name="content">
+                        </p>
+                      </div>
+                  </div>
+                  <!-- end submit -->
+
+                     
+                      
+                      
+
+                  </form>
+                 
+
+
+                       <!-- content start div
+                            display the rest of my posted activities  -->
+
+                       <% @activities = current_user.activities %>
+                      <% @activities.each do |activity| %>
+                        <% @activity = activity %>
+                        <!-- this is a list item representing one Activity
+                            it links to details page for that activity 
+                            it will repeat itself for all activities -->
+                        <a href="/activities/<%= activity.id %>">
+                          <div class="create_button">
+                            <%= erb :'activities/show_short' %>
+                          </div>
+                        </a>
+                        <!-- end individual activity -->
+                      <% end %>
+
+                    <!-- content end div -->
+
+
+
+                       
+                      
+                  
+              </div>
+            </div>
+          </section>
+      </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Collects input for new submission -->
+
+    
+    
+      <div>
+        <input type="choose from 0, 1, 2, 3 " name="cost">
+      </div>
+      <div>
+        <input type="true/false " name="social">
+      </div>
+      <div>
+        <input type="true/false " name="at_home">
+      </div>
+      <div>
+        <input type="text" value="<%= @activity.location %>" name="location">
+      </div>
+      <div>
+        <input type="submit" value="Submit">
+      </div>
+
+
+  <!-- end input form -->
+
+
+
+
+
+
 <div class="main container">
 
   <!-- If submission was invalid, will display error messages. 
@@ -32,32 +197,6 @@
   <!-- end error messages -->
 
 
-  <!-- Collects input for new submission -->
-  <div class="new activity form">
-    <form action = "/users/<%= session[:user_id] %>/activities" method = "post">
-      <div>
-        <input type="text" value="<%= @activity.title %>" name="title" >
-      </div>
-      <div>
-        <input type="choose from 0, 1, 2, 3 " name="cost">
-      </div>
-      <div>
-        <input type="true/false " name="social">
-      </div>
-      <div>
-        <input type="true/false " name="at_home">
-      </div>
-      <div>
-        <input type="text" value="<%= @activity.location %>" name="location">
-      </div>
-      <div>
-        <input type="text" value="<%= @activity.content %>" name="content">
-      </div>
-      <div>
-        <input type="submit" value="Submit">
-      </div>
-    </form>
-  </div>
-  <!-- end input form -->
+  
 
 </div>

@@ -2,38 +2,15 @@
     It is used as part of a list, nested in index.erb OR show.erb
     Receives @activity as an instance variable -->
 
-  <div class="activity rating">
-  <% @activity.rating %>
-  </div>
 
-  <div class="activity title">
-    <a href = "/activities/<%= @activity.id %>">
-      <h2><%= @activity.title %></h2>
-    </a>
-  </div>
+  <h3 class="rating_box"><%= @activity.rating %></h3>
+      <a class="title" href = "/activities/<%= @activity.id %>">
+        <h3><%= @activity.title %></h3>
+        <img src="<%= @activity.user.avatar%>">
+      </a> 
 
 
 
-<!-- display icons for cost, social, at_home -->
-<div class="social/alone">
-  <% if @activity.social %>
-    <img src=" " alt="social icon"/>
-  <% else %>
-    <img src="" alt="alone icon" />
-  <% end %>
-</div>
 
-<div class="at_home/outdoors">
-  <% if @activity.at_home %>
-    <img src=" " alt="at home icon" />
-  <% else %>
-    <img src="" alt="outdoors icon" />
-  <% end %>
-</div>
 
-<div class="cost">
-  <img src= "<%= @activity.cost_img %>" />
-</div>
-<!-- end icon display -->
-
-</div>
+<!-- add creator avatar @activity.user.avatar for list -->
