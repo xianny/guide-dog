@@ -1,0 +1,27 @@
+<!-- Display (short versions of) one activity
+    Meant to be used as part of a list
+    Takes @activity as an instance variable -->
+
+<div>
+<%= @activity.rating %>
+<%= @activity.title %>
+
+
+<!-- Display each tag in a separate <p>, e.g. <p>music</p> -->
+<% tags = @activity.tags %>
+<% tags.each do |tag| %>
+  <p> <%= tag.name %>  </p>
+<% end %>
+<!-- end tag display -->
+
+<!-- display icons depending on social or at_home settings -->
+<% if @activity.social %>
+  <img src=" " alt="social icon"/>
+<% end %>
+
+<% if @activity.at_home %>
+  <img src=" " alt="at home icon" />
+<% end %>
+<!-- end icon display -->
+
+</div>

@@ -1,0 +1,16 @@
+<!-- Display (short versions of) all activities associated with a single user
+    Takes @user as an instance variable -->
+
+<% @activities = @user.activities %>
+
+<!-- iteratively generates html for the short version of the activity -->
+
+ 
+
+<% @activities.each do |activity| %>
+  <% @activity = activity %>
+  <a href "/activities/<%= activity.id %>">
+    <%= erb :'activities/show_short' %>  
+  </a>
+<% end %>
+

@@ -1,0 +1,10 @@
+<!-- Display a single user
+    Takes @user as an instance variable -->
+
+<p><%= @user.username %></p>
+
+<p><%= @user.email %></p>
+
+<img src="<%= @user.avatar %>" />
+
+<%= erb :'users/activities' %>

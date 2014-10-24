@@ -18,4 +18,10 @@ class Activity < ActiveRecord::Base
     self.at_home = true if self.at_home.nil?
     self.social = false if self.social.nil?
   end
+
+  # returns aggregated rating
+  def rating
+
+  end
+
 end

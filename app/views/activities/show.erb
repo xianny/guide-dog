@@ -1,0 +1,24 @@
+<!-- Display complete version of Activity 
+  Takes @activity as an instance variable -->
+
+  <div>
+
+  <!-- show summary (list version) of activity (icons, tags, title, rating) -->
+  <%= erb :'activities/show_short' %>
+
+  <!-- show detailed content of activity -->
+  <%= @activity.content %>
+
+  <!-- displays new review submission box -->
+  <%= erb :'reviews/new' %>
+  <!-- end new review submission -->
+
+  <!-- iterates over collection of reviews -->
+  <% @activity.reviews.each do |review| %>
+    <% @review = review %>
+    <!-- generate html for individual review -->
+    <%= erb :'reviews/show' %>
+  <% end %>
+  <!-- end iteration -->
+
+  </div>
