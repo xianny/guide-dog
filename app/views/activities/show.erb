@@ -1,89 +1,56 @@
-<!-- Display complete version of Activity 
-  Takes @activity as an instance variable -->
-
-<section id="main-content">
-          <section class="wrapper site-min-height">
-            <h3><i class="fa fa-angle-right"></i> Viewing list</h3>
-            <div class="row mt">
-              <div class="col-lg-12">
-
-                  <div class="row mt">
-                    
-                    <%= erb :'/activities/show_short' %>
-
-                    <div class="content col-lg-12">
-                      
+<!-- This template generates a detailed page for one Activity
+  This template yields directly from layout.erb, so its structure is equivalent to index.erb
+  Receives @activity as an instance variable -->
 
 
+<!-- yield from layout.erb -->
+  <div class="main container">
 
-                      <div class="list_view">
-                        <div class="list_text">
-                          <p><%= @activity.content %>
-                          </p>
-                        </div>
-                        <div class"list_tags"></div>
-                      </div>
+    <!-- summary
+     identical to a single list item from the list of ALL activities -->
+    <div class="activity summary">
+      <%= erb :'activities/show_short' %>
+    </div>
+    <!-- end summary -->
 
-
-
-
-                      <div class="comment_input">
-                      
-                        <div class="comment_avatar"></div>
-
-                        <form>
-                            <input value="ERB USER" type="hidden" name="author" placeholder="Text input">
-                            
-                            <textarea class="form-control comment_margin comment_text" rows="4"></textarea>
-
-                            <input class="comment_margin comment_button" type="submit" value="submit">
-
-                          </form>
-                      </div>                      
+    <!-- display tags -->
+    <div class="all tags">
+      <% tags = @activity.tags %>
+      <% tags.each do |tag| %>
+        <div class="individual tag"> 
+          <%= tag.name %>  
+        </div>
+      <% end %>
+    </div>
+    <!-- end tags -->
 
 
-                      <div class="comments">
-                        <textarea class="form-control"></textarea>
-                        
-                      </div>
-
-
-
-
-                    </div>
-
-                  </div> <!-- end of create_button -->
-                </div> <!-- end of create_activity -->
-
-
-              </div>
-            </div>
-          </section>
-      </section>
-
-
-
-
-  <div>
-
-  <!-- show summary (list version) of activity (icons, tags, title, rating) -->
-  <div class="something">
-  <%= erb :'activities/show_short' %>
+  <div class="activity main body">
+    <p>
+      <%= @activity.content %>
+    </p>
   </div>
 
-  <!-- show detailed content of activity -->
-  <%= @activity.content %>
 
-  <!-- generate HTML to display submission box for new review -->
-  <%= erb :'reviews/new' %>
-  <!-- end new review submission -->
 
-  <!-- iterates over collection of reviews -->
-  <% @activity.reviews.each do |review| %>
-    <% @review = review %>
-    <!-- generate html for individual review -->
-    <%= erb :'reviews/show' %>
-  <% end %>
-  <!-- end iteration -->
-
+  <div class="new review">
+    <%= erb :'reviews/new' %>
   </div>
+
+
+  <!-- list of ALL reviews -->
+  <div class="all reviews">
+    <% @activity.reviews.each do |review| %>
+      <% @review = review %>
+      
+      <!-- individual review -->
+      <div class="individual review">
+        <%= erb :'reviews/show' %>
+      </div>
+      <!-- end individual review -->
+    
+    <% end %>
+  </div>
+  <!-- end list of all reviews -->
+
+</div>

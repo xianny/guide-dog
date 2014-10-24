@@ -1,61 +1,56 @@
-<section id="main-content">
-          <section class="wrapper site-min-height">
-            <h3><i class="fa fa-angle-right"></i> Logged in profile</h3>
-            <div class="row mt">
-              <div class="col-lg-12">
+<!-- this template receives a variable called @activities
+@activities is a Collection of Activity objects (pre-selected and sorted)
+this template will render all Activities in the Collection in a list -->     
 
-                  <div class="row mt">
-                    
-                    <%= erb :'activities/create' %>
+<!-- yield from layout.erb -->
 
-                    <div class="content col-lg-12">
-                      
-                      <%= erb :'activities/unique' %>
+  <!-- will only be rendered if logged in -->
+  <% if session[:user_id] %>
 
-                    </div>
+    <div class="user avatar"
+      <img src="<%= current_user.avatar %>" />
+    </div>
 
-                  </div> <!-- end of create_button -->
-                </div> <!-- end of create_activity -->
+    <div class="create button">
+      
+      <a href="/users/<%= session[:user_id] %>/activities/new">
+        <button class="Create New Activity"></button>
+      </a>
+
+    </div>
+
+  <% end %>
+  <!-- end rendered if logged in -->
+
+  <!-- display search parameters,
+    will only be rendered if displaying search results
+    otherwise will display all activities, or all activities belonging to specific user  -->
+  <% if @search %>
+
+    <div class="tags, location, icons">
+      <!-- work in progress! -->
+    </div>
+
+  <% end %>
+  <!-- end search parameters -->
 
 
-              </div>
-            </div>
-          </section>
-      </section>
+  <!-- list of ALL activities -->
+  <div class="container for activity list">
 
+    <% @activities.each do |activity| %>
+      <% @activity = activity %>
 
+      <!-- this is a list item representing one Activity
+          it links to details page for that activity 
+          it will repeat itself for all activities -->
+      <a href = "/activities/<%= activity.id %>">
+        <div class="container for activity summary">
+          <%= erb :'activities/show_short' %>  
+        </div>
+      </a>
+      <!-- end individual activity -->
 
-
-
-      <div>
-      <div>
-<%= erb :'activities/new' %>
-
-                <% @activities.each do |activity| %>
-                  <% @activity = activity %>
-                  <a href = "/activities/<%= activity.id %>">
-                    <div>
-                    <%= erb :'activities/show_short' %>  
-                    </div>
-                  </a>
-                <% end %>
-
-                <!-- end xianny insert -->
-              </div>
-            </div>
-
-    <!--common script for all pages-->
-    <script src="assets/js/common-scripts.js"></script>
-
-    <!--script for this page-->
-    
-  <script>
-      //custom select box
-
-      $(function(){
-          $('select.styled').customSelect();
-      });
-
-  </script>
-
-</html>
+    <% end %>
+  </div>
+  <!-- end list of all activities -->

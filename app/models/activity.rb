@@ -24,4 +24,14 @@ class Activity < ActiveRecord::Base
 
   end
 
+  #returns String = filepath, to image representing cost e.g. "/img/dollarsign1.jpg"
+  def cost_img
+    case self.cost
+    when 0 then "/img/cost-0.jpg"
+    when 1 then "/img/cost-1.jpg"
+    when 2 then "/img/cost-2.jpg"
+    when 3 then "/img/cost-3.jpg"
+    end
+  end
+
 end

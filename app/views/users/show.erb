@@ -1,10 +1,20 @@
-<!-- Display a single user
-    Takes @user as an instance variable -->
+<!-- NO HTML HERE
+    EDIT DIRECTLY IN activities/index.erb
 
+  Details:
+  Currently displays all activities posted by specific user
+      trace in descending order:
+      trace: erb :'activities/index'
+      trace: redirect 'users/:id/activities'
+      trace: this page
+  Receives @user as an instance variable 
+     -->
+
+<!-- WILL NOT DISPLAY
 <p><%= @user.username %></p>
 
 <p><%= @user.email %></p>
 
 <img src="<%= @user.avatar %>" />
+-->
 
-<%= erb :'users/activities' %>

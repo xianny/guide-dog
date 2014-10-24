@@ -1,30 +1,39 @@
-<!-- Display (short versions of) one activity
-    Meant to be used as part of a list
-    Takes @activity as an instance variable -->
+<!-- This template generates a short version of one activity
+    It is used as part of a list, nested in index.erb OR show.erb
+    Receives @activity as an instance variable -->
 
-<div>
-<% @activity.rating %>
+  <div class="activity rating">
+  <% @activity.rating %>
+  </div>
 
-<a href = "/activities/<%= @activity.id %>">
-<%= @activity.title %>
-</a>
+  <div class="activity title">
+    <a href = "/activities/<%= @activity.id %>">
+      <h2><%= @activity.title %></h2>
+    </a>
+  </div>
 
 
-<!-- Display each tag in a separate <p>, e.g. <p>music</p> -->
-<% tags = @activity.tags %>
-<% tags.each do |tag| %>
-  <p> <%= tag.name %>  </p>
-<% end %>
-<!-- end tag display -->
 
-<!-- display icons depending on social or at_home settings -->
-<% if @activity.social %>
-  <img src=" " alt="social icon"/>
-<% end %>
+<!-- display icons for cost, social, at_home -->
+<div class="social/alone">
+  <% if @activity.social %>
+    <img src=" " alt="social icon"/>
+  <% else %>
+    <img src="" alt="alone icon" />
+  <% end %>
+</div>
 
-<% if @activity.at_home %>
-  <img src=" " alt="at home icon" />
-<% end %>
+<div class="at_home/outdoors">
+  <% if @activity.at_home %>
+    <img src=" " alt="at home icon" />
+  <% else %>
+    <img src="" alt="outdoors icon" />
+  <% end %>
+</div>
+
+<div class="cost">
+  <img src= "<%= @activity.cost_img %>" />
+</div>
 <!-- end icon display -->
 
 </div>

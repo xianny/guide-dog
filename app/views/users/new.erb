@@ -1,4 +1,5 @@
-<!-- Display form to create new user 
+<!-- This template generates a signup form
+  This yields directly from layout.erb, so its structure is equivalent to index.erb 
     Takes @user as an instance variable
     Needs to collect params
       :username
@@ -9,41 +10,45 @@
     and POST to '/users'
   -->
 
+  <!-- If submission was invalid, will display error messages. 
+  This <div> will not be rendered at all if there are no errors -->
+    <% if @user.errors.any? %>
+      <div class="errors">
+        <strong>Some issues with your submission, please fix them:</strong>
+        <ul>
+          <% @user.errors.full_messages.each do |error_message| %>
+            <li><%= error_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <!-- end errors -->
 
-<% if @user.errors.any? %>
-  <div>
-    <strong>Some issues with your submission, please fix them:</strong>
-    <ul>
-      <% @user.errors.full_messages.each do |error_message| %>
-        <li><%= error_message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+  <!-- collects input for new user -->
+    <form action = "/users" method = "post">
+      <div>
+        <label>Username:</label>
+        <input type="text" value="<%= @user.username %>" name="username" >
+      </div>
+      <div>
+        <label>Password:</label>
+        <input type="password" name="password">
+      </div>
+      <div>
+        <label>Verify password:</label>
+        <input type="password" name="password_confirmation">
+      </div>
+      <div>
+        <label>Email (optional):</label>
+        <input type="text" value="<%= @user.email %>" name="email">
+      </div>
+      <div>
+        <label>Email Confirmation:</label>
+        <input type="text" value="<%= @user.email %>" name="email_confirmation">
+      </div>
+      <div>
+        <input type="submit" value="Submit">
+      </div>
 
-<form action = "/users" method = "post">
-  <div>
-    <label>Username:</label>
-    <input type="text" value="<%= @user.username %>" name="username" >
-  </div>
-  <div>
-    <label>Password:</label>
-    <input type="password" name="password">
-  </div>
-  <div>
-    <label>Verify password:</label>
-    <input type="password" name="password_confirmation">
-  </div>
-  <div>
-    <label>Email (optional):</label>
-    <input type="text" value="<%= @user.email %>" name="email">
-  </div>
-  <div>
-    <label>Email Confirmation:</label>
-    <input type="text" value="<%= @user.email %>" name="email_confirmation">
-  </div>
-  <div>
-    <input type="submit" value="Submit">
-  </div>
-
-</form>
+    </form>
+  <!-- end input form -->

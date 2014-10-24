@@ -1,10 +1,63 @@
-<!-- Collects info for a new activity
+<!-- This template generates a form for submitting a new Activity
+  It yields directly from layout.erb, so its structure is equivalent to index.erb
+  Takes @activity as a variable. @activity = Activity.new, or the previous invalid submission
     Needs parameters: 
-    title:   
-    cost:
-    location: 
-    content:  
-    social:   
-    at_home:  
+    title: String
+    cost: 0,1,2,3
+    location: String
+    content:  String
+    social:  boolean
+    at_home:  boolean
   POST to '/users/<%= session[:user_id] %>/activities'
 -->
+
+<div class="main container">
+
+  <!-- If submission was invalid, will display error messages. 
+  This <div> will not be rendered at all if there are no errors -->
+  <% if @activity.errors.any? %>
+    <div class="error messages">
+      
+      <strong>Some issues with your submission, please fix them:</strong>
+      <ul>
+        <% @activity.errors.full_messages.each do |error_message| %>
+          <!-- single error message 
+            this <li> will be repeated for each error -->
+          <li><%= error_message %></li>
+        <% end %>
+      </ul>
+    
+    </div>
+  <% end %>
+  <!-- end error messages -->
+
+
+  <!-- Collects input for new submission -->
+  <div class="new activity form">
+    <form action = "/users/<%= session[:user_id] %>/activities" method = "post">
+      <div>
+        <input type="text" value="<%= @activity.title %>" name="title" >
+      </div>
+      <div>
+        <input type="choose from 0, 1, 2, 3 " name="cost">
+      </div>
+      <div>
+        <input type="true/false " name="social">
+      </div>
+      <div>
+        <input type="true/false " name="at_home">
+      </div>
+      <div>
+        <input type="text" value="<%= @activity.location %>" name="location">
+      </div>
+      <div>
+        <input type="text" value="<%= @activity.content %>" name="content">
+      </div>
+      <div>
+        <input type="submit" value="Submit">
+      </div>
+    </form>
+  </div>
+  <!-- end input form -->
+
+</div>
