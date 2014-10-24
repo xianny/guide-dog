@@ -21,8 +21,8 @@ end
 
 # Display all users(?) nest some other ERBs.
 get '/users' do
-  erb :'users/index'
 end
+
 
 # Display form to create new user
 get '/users/new' do

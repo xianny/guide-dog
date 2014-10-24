@@ -1,6 +1,69 @@
 <!-- Display complete version of Activity 
   Takes @activity as an instance variable -->
 
+<section id="main-content">
+          <section class="wrapper site-min-height">
+            <h3><i class="fa fa-angle-right"></i> Viewing list</h3>
+            <div class="row mt">
+              <div class="col-lg-12">
+
+                  <div class="row mt">
+                    
+                    <%= erb :'/activities/show_short' %>
+
+                    <div class="content col-lg-12">
+                      
+
+
+
+                      <div class="list_view">
+                        <div class="list_text">
+                          <p><%= @activity.content %>
+                          </p>
+                        </div>
+                        <div class"list_tags"></div>
+                      </div>
+
+
+
+
+                      <div class="comment_input">
+                      
+                        <div class="comment_avatar"></div>
+
+                        <form>
+                            <input value="ERB USER" type="hidden" name="author" placeholder="Text input">
+                            
+                            <textarea class="form-control comment_margin comment_text" rows="4"></textarea>
+
+                            <input class="comment_margin comment_button" type="submit" value="submit">
+
+                          </form>
+                      </div>                      
+
+
+                      <div class="comments">
+                        <textarea class="form-control"></textarea>
+                        
+                      </div>
+
+
+
+
+                    </div>
+
+                  </div> <!-- end of create_button -->
+                </div> <!-- end of create_activity -->
+
+
+              </div>
+            </div>
+          </section>
+      </section>
+
+
+
+
   <div>
 
   <!-- show summary (list version) of activity (icons, tags, title, rating) -->

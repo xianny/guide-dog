@@ -1,10 +1,128 @@
-.create-activity {
+.logo {
+  margin-left: 37px;
+}
+
+.activity {
   background-color: lightblue;
-  height: 100px;
+  height: 100px;  
+}
+
+.row .mt {
+  margin-top: 0;
+}
+
+.create_button {
+  height: 70px;
+  width: 60%;
+  background-color: #F5CF72;
+  border-radius: 5%;
+  margin: 0 auto;
+}
+
+.create_button h4 {
+  padding-top: 29px;
 }
 
 
-.test {
-  height: 400px;
-  width: 400px;
+
+.create {
+  text-align: center;
+  margin: 15px 20px 0 0;
 }
+
+.content {
+/*  background-color: tomato;
+*/  height: 600px;
+}
+
+.activity_list {
+  height: 70px;
+  width: 60%;
+  background-color: #F5CF72;
+  border-radius: 5%;
+  margin: 15px auto;
+}
+
+.rating_box {
+  position: relative;
+  top: 5px;
+  left: 5px;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  padding-top: 18px;
+}
+
+
+.title {
+  text-align: center;
+  margin-top: -41px;
+}
+
+
+
+.list_view {
+  width: 70%;
+  height: 60%;
+  margin: 0 auto;
+/*  background-color: lightblue;
+*/}
+
+
+.comment_input {
+  margin: 0 auto;
+  height: 29%;
+  width: 55%;
+/*  background-color: blue;
+*/}
+
+
+.list_text {
+  width: 86%;
+  height: 90%;
+  background-color: #F5CF72;
+  margin: 0 auto;
+  border-radius: 4%;
+  position: relative;
+  top: 20px;
+  overflow: scroll;
+  padding: 50px;
+}
+
+.comment_avatar {
+  margin-top: 10px;
+  margin-left: 26px;
+}
+
+.comment_avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  background-color: green;
+  position: relative;
+  top: 18px;
+}
+
+.comment_text {
+  float: right;
+  width: 80%;
+  margin-top: -71px;
+}
+
+.comments {
+  margin: 0 auto;
+  height: 29%;
+  width: 55%;
+  background-color: tomato;
+}
+
+.comment_button {
+  position: relative;
+  top: 34px;
+  left: 600px;
+}
+
+
+
+
+
