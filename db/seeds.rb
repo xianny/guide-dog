@@ -38,9 +38,10 @@ users = User.all
 users.each do |user|
   2.times do 
     activity = user.activities.create(
-      title: "#{Faker::Lorem.sentence}",
+      title: "Some Cool Activity Title",
       location: "#{Faker::Address.city} #{Faker::Address.state_abbr}",
       cost: rand(4)
+      content: "Try doing this stuff. And then this other stuff! #{Faker::Lorem.paragraph}"
     )
     activity.save if activity.valid?
     3.times { activity.tags << @tags.sample }
@@ -52,7 +53,7 @@ users.each do |user|
   activities = Activity.where("user_id != ?", user.id).sample(5)
   activities.each do |a|
     review = a.reviews.create(
-        comment: "#{Faker::Lorem.paragraph}",
+        comment: "This is what I think of this activity!! #{Faker::Lorem.paragraph}",
         rating: rand(5) + 1,
         user_id: user.id
       )

@@ -157,4 +157,6 @@ get '/activities' do
   # generate collection of activities based on parameters
   # set as instance variable @activities
   # call erb: 'activities/index'
+  @activities = Activity.all
+  erb :'activities/index'
 end
