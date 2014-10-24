@@ -4,12 +4,16 @@ helpers do
 
   # returns User Obj
   def current_user
-    session[:user_id] ? User.find(session[:user_id]) : nil
+    session[:user_id] ? User.find(session[:user_id]) : User.new
   end
 
   # returns String
   def get_username(id)
     User.find(id).username || nil
+  end
+
+  def all_tags
+     Tag.all
   end
  
 end
@@ -82,6 +86,12 @@ end
 #### ACTIVITIES ####
 #### ---------- ####
 
+
+
+get '/activities' do
+  @activities = Activity.all
+  erb :'activities/index'
+end
 
 # Display single user's activities, with option to create new
 get '/users/:u_id/activities' do

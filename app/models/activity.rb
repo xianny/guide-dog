@@ -21,7 +21,7 @@ class Activity < ActiveRecord::Base
 
   # returns aggregated rating
   def rating
-
+    4.5
   end
 
   #returns String = filepath, to image representing cost e.g. "/img/dollarsign1.jpg"

@@ -1,6 +1,10 @@
 <!-- Shows a single review. part of a list
   Takes @review as a variable
   -->
+
+
+
+
 <div>
   <%= @review.comment %>
 
@@ -8,4 +12,7 @@
 
   posted by <%= get_username(@review.user_id) %> 
   at <%= @review.created_at %>
+
+
+  avatar: <img src="<%= @review.user.avatar %>">  
 </div>
