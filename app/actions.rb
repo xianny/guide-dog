@@ -146,17 +146,17 @@ end
 
 # Post new review
 post '/activities/:a_id/reviews' do
-  redirect '/' if !session[:user_id]
+  redirect "/activities/#{params[:a_id]}" if !session[:user_id]
   reviewer =   User.find(session[:user_id])
   author = User.find(params[:u_id])
   
   @activity = Activity.find(params[:a_id])
 
   @review = Review.create(
-    comment: params[:comment],
-    rating: params[:rating],
-    activity_id: params[:a_id],
-    user_id: session[:user_id] 
+    comment:      params[:comment],
+    rating:       params[:rating],
+    activity_id:  params[:a_id],
+    user_id:      session[:user_id] 
   )
 
   if @review.save

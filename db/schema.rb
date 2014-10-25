@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141023033134) do
+ActiveRecord::Schema.define(version: 20141025022336) do
 
   create_table "activities", force: true do |t|
     t.integer  "user_id"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20141023033134) do
   end
 
   create_table "proficiencies", force: true do |t|
-    t.integer  "strength"
+    t.float    "strength"
     t.integer  "user_id"
     t.integer  "tag_id"
     t.datetime "created_at"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20141023033134) do
   create_table "relevances", force: true do |t|
     t.integer  "activity_id"
     t.integer  "tag_id"
-    t.integer  "strength"
+    t.float    "strength"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
