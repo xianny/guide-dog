@@ -1,5 +1,3 @@
-require_relative '../../config/environment'
-
 class Activity < ActiveRecord::Base
   belongs_to :user
   has_many :relevances
@@ -8,6 +6,8 @@ class Activity < ActiveRecord::Base
 
   before_validation :set_defaults, on: :create
 
+  after_create :add_tags_to_user
+
 
   validates :user_id, presence: true
   validates :title, presence: true
@@ -15,6 +15,19 @@ class Activity < ActiveRecord::Base
   validates :social, inclusion: {in: [true, false]}
   validates :cost, presence: true, inclusion: {in: [0,1,2,3]}  ## must be input by user, no defaults
   validates :location, presence: true 
+
+  def update_author_tags
+    new_tags = unique_tags
+    new_tags.each do |tag|
+      user.tags << tag
+    end
+  end
+
+  def unique_tags(user=self.user)
+    result = Set.new(self.tags) ^ user.tags
+    result.to_a
+  end
+
 
   def set_defaults
     self.at_home = true if self.at_home.nil?
@@ -41,27 +54,28 @@ class Activity < ActiveRecord::Base
   end
 
   def find_common_tags(reviewer)
-    puts "ACTIVITY TAGS #{tags.inspect}"
-    puts "REVIEWER TAGS #{reviewer.tags.inspect}"
     combined_tags = []
     combined_tags.concat(tags)
     combined_tags.concat(reviewer.tags)
-    puts "COMBINED: #{combined_tags.inspect}"
 
-    # duplicate_tags =  combined_tags.select do |tag| 
-    #                     combined_tags.count(tag) > 1
-    #                   end
-    # duplicate_tags.uniq!
+    duplicate_tags =  combined_tags.select do |tag| 
+                        combined_tags.count(tag) > 1
+                      end
+
+    duplicate_tags.uniq!
   end
 
-
+  # Variables: reviewer = User object, rating = (Integer)
+  # Triggers relevance update for all tags in common with User
   def save_rating_by(reviewer, rating)
     common_tags = find_common_tags(reviewer)
+    common_tags.each do |tag|
+      relevance = relevances.where(tag_id: tag.id).first
+
+      relevance.modify_strength(rating, reviewer.proficiency(tag))
+
+      user.save_rating(tag, reviewer, rating)
+    end
   end
 
-
 end
-
-activity = Activity.find(25)
-reviewer = User.find(20)
-binding.pry

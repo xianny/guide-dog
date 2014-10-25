@@ -7,8 +7,14 @@ class Relevance < ActiveRecord::Base
   validates :activity_id, presence: true
   validates :tag_id, presence: true
 
+  RELEVANCE_MODIFIER = 0.2
+
   def set_default_strength
     self.strength ||=0
+  end
+
+  def modify_strength(rating, user_factor)
+    self.strength += (rating * user_factor * RELEVANCE_MODIFIER)
   end
 
 end

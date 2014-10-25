@@ -8,4 +8,22 @@ class User < ActiveRecord::Base
   validates :password, presence: true, confirmation: true
   validates :email, confirmation: true, if: "email"
   ## TODO validate and set default :avatar
+
+
+  # Variables: tag = Tag
+  # Returns total proficiency associated with the tag
+  def proficiency(tag)
+    proficiency = proficiencies.where(tag_id: tag.id)
+    proficiency.strength
+  end
+
+  # Variables: tag = Tag, reviewer = User, rating = Integer
+  # modifies proficiency for Tag based on reviewer's expertise and the given rating
+  def save_rating(tag, reviewer, rating)
+    proficiency = proficiencies.where(tag_id: tag.id)
+    user_factor = reviewer.proficiency(tag)
+
+    proficiency.modify_strength(rating, user_factor)
+  end
+
 end
