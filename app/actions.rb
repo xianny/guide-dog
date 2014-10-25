@@ -55,10 +55,7 @@ end
 
 # Display single user
 get '/users/:u_id' do
-  redirect "/users/#{params[:u_id]}/activities"
-  # @user = User.find(params[:u_id])
-  # @activity = Activity.new
-  # erb :'users/show'  
+  redirect "/users/#{params[:u_id]}/activities" 
 end
 
 # Display login screen
@@ -97,6 +94,11 @@ end
 #### ACTIVITIES ####
 #### ---------- ####
 
+# Display single activity
+get '/activities/:a_id' do 
+  @activity = Activity.find(params[:a_id])
+  erb :'activities/show'
+end
 
 
 get '/activities' do
@@ -119,8 +121,6 @@ get '/users/:u_id/activities/new' do
   # end
 end
 
-
-
 # Create new activity
 post '/users/:u_id/activities' do
   user = User.find(params[:u_id])
@@ -141,35 +141,29 @@ post '/users/:u_id/activities' do
 
 end
 
-# Display single activity
-get '/activities/:a_id' do 
-  @activity = Activity.find(params[:a_id])
-  erb :'activities/show'
-end
-
 #### REVIEWS ####
 #### ------- ####
 
-
-# Display all reviews associated with the activity
-get '/users/:u_id/activities/:a_id/reviews' do
-
-end
-
-# Display form to post new review
-get '/users/:u_id/activities/:a_id/reviews/new' do
-
-end
-
 # Post new review
-post '/users/:u_id/activities/:a_id/reviews' do
-  user = User.find(session[:user_id])
+post '/activities/:a_id/reviews' do
+  redirect '/' if !session[:user_id]
+  reviewer =   User.find(session[:user_id])
   author = User.find(params[:u_id])
+  
+  @activity = Activity.find(params[:a_id])
 
-end
+  @review = Review.create(
+    comment: params[:comment],
+    rating: params[:rating],
+    activity_id: params[:a_id],
+    user_id: session[:user_id] 
+  )
 
-# Display a single review
-get '/users/:u_id/activities/:a_id/reviews/:r_id' do
+  if @review.save
+    redirect "users/#{params[:u_id]}/activities/#{params[:a_id]}"
+  else
+    erb :'activities/show'
+  end
 
 end
 
