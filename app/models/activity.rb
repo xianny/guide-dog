@@ -1,3 +1,5 @@
+require_relative '../../config/environment'
+
 class Activity < ActiveRecord::Base
   belongs_to :user
   has_many :relevances
@@ -5,7 +7,7 @@ class Activity < ActiveRecord::Base
   has_many :tags, through: :relevances
 
   before_validation :set_defaults, on: :create
-  validates_associated :user
+
 
   validates :user_id, presence: true
   validates :title, presence: true
@@ -38,4 +40,28 @@ class Activity < ActiveRecord::Base
     end
   end
 
+  def find_common_tags(reviewer)
+    puts "ACTIVITY TAGS #{tags.inspect}"
+    puts "REVIEWER TAGS #{reviewer.tags.inspect}"
+    combined_tags = []
+    combined_tags.concat(tags)
+    combined_tags.concat(reviewer.tags)
+    puts "COMBINED: #{combined_tags.inspect}"
+
+    # duplicate_tags =  combined_tags.select do |tag| 
+    #                     combined_tags.count(tag) > 1
+    #                   end
+    # duplicate_tags.uniq!
+  end
+
+
+  def save_rating_by(reviewer, rating)
+    common_tags = find_common_tags(reviewer)
+  end
+
+
 end
+
+activity = Activity.find(25)
+reviewer = User.find(20)
+binding.pry

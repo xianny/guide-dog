@@ -1,10 +1,13 @@
+require 'sinatra/activerecord'
+require 'active_support/all'
+
 class Review < ActiveRecord::Base
   belongs_to :activity
   belongs_to :user
 
-  validates_associated :user, :activity
 
   validate :rating_or_comment_exists
+  validate :cannot_review_self
   validates :user_id, presence: true
   validates :activity_id, presence: true
 
@@ -15,5 +18,12 @@ class Review < ActiveRecord::Base
     end
   end
 
+  def cannot_review_self
+    errors.add(:user_id, 'Cannot review activity posted by self') if activity.user_id == user.id
+  end
+
+  def test_save
+    activity.save_rating_by(user,rating) if rating
+  end
 
 end

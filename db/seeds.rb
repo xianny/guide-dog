@@ -30,7 +30,7 @@ Tag.create(name:'park')
 
 
 # Creates 30 new users
-30.times do
+20.times do
   FactoryGirl::create(:user)
 end
 
@@ -39,7 +39,7 @@ user.username = 'test'
 user.save
 
 
-
+users = User.all
 ## Each user posts 2 activities and adds 3 tags to it
 users.each do |user|
   2.times do 
@@ -56,7 +56,7 @@ end
 
 ## Each user reviews 5 random activities that they did not author
 users.each do |user|
-  activities = Activity.where("user_id != ?", user.id).sample(5)
+  activities = Activity.where("user_id != ?", user.id).sample(3)
   activities.each do |a|
     review = a.reviews.create(
         comment: "This is what I think of this activity!! #{Faker::Lorem.paragraph}",
