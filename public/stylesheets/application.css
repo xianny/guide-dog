@@ -12,16 +12,17 @@
 }
 
 .create_button {
+  position: relative;
+  border: 1px solid black;
   height: 70px;
   width: 60%;
   background-color: #F5CF72;
-  border-radius: 5%;
+  border-radius: 5px;
   margin: 0 auto;
+  margin-bottom: 16px;
 }
 
-.create_button h4 {
-  padding-top: 29px;
-}
+
 
 
 
@@ -45,12 +46,10 @@
 
 .rating_box {
   position: relative;
-  top: 5px;
   left: 5px;
   height: 60px;
   width: 60px;
   text-align: center;
-  padding-top: 18px;
 }
 
 
@@ -58,7 +57,7 @@
   text-align: center;
   margin-top: 0;
   position: relative;
-  top: -53px;
+  top: -78px;
 }
 
 
@@ -87,18 +86,22 @@
 }
 
 
-
-
-.user_avatar {
-  height: 100px;
-  width: 100px;
-  background-color: red;
-  border-radius: 100%;
+.activity_creator_avatar {
+  height: 50px;
+  width: 50px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 8px;
+  float: right;
+  position: relative;
+  bottom: 49px;
+  right: 10px;
 }
 
 
 
-/*comment css
+
+/*comment css 
 */
 
 .comment_input {

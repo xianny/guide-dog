@@ -18,15 +18,13 @@
                        <!-- show short version -->                   
             <div class="row mt">   
 
-
-<!--                     create avatar div for post creator
--->          <div class="user_avatar">
-                <img src="<%= @activity.user.avatar %>" />
-            </div>
-
-               <div class="create_button">
+<!--         create avatar div for post creator
+-->         
+                  <div class="create_button">
                     <%= erb :'activities/show_short' %>
                   </div>
+
+
             </div>
               <!-- end short version --> 
 
@@ -76,10 +74,11 @@
       
 
           <!-- TODO style div for new review submission -->
-          <!-- TODO make an if statement to check if logged in -->
-          <div class="new_review">
-            <%= erb :'reviews/new' %>
-          </div>
+          <% if session[:user_id] %>
+            <div class="new_review">
+              <%= erb :'reviews/new' %>
+            </div>
+          <% end %>
 
                   <!-- TODO end -->
 
