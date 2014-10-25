@@ -11,7 +11,7 @@
 <section id="main-content">
           <section class="wrapper site-min-height">
             <h3><i class="fa fa-angle-right"></i> Logged in sadad</h3>
-            <div class="row mt">
+            <div class="row mt main_content_box">
               <div class="col-lg-12">
 
                   
@@ -20,9 +20,9 @@
 
 <!--         create avatar div for post creator
 -->         
-                  <div class="create_button">
-                    <%= erb :'activities/show_short' %>
-                  </div>
+              <div class="create_button">
+                <%= erb :'activities/show_short' %>
+              </div>
 
 
             </div>
@@ -30,46 +30,64 @@
 
               <!-- display icons for cost, social, at_home -->
 
-              <% if @activity.social %>
-                <img src=" " alt="social icon"/>
-              <% else %>
-                <img src="" alt="alone icon" />
-              <% end %>
 
+              <div class="show_icons">
+                <ul>
+                  <li>
+                    <% if @activity.social %>
+                      <img src=" " alt="social icon"/>
+                    <% else %>
+                      <img src="" alt="alone icon" />
+                    <% end %>
+                  </li>
 
+                  <li>
+                    <% if @activity.at_home %>
+                      <img src=" " alt="at home icon" />
+                    <% else %>
+                      <img src="" alt="outdoors icon" />
+                    <% end %>
+                  </li>
 
-              <% if @activity.at_home %>
-                <img src=" " alt="at home icon" />
-              <% else %>
-                <img src="" alt="outdoors icon" />
-              <% end %>
-
-
-            <div class="cost">
-              <img src= "<%= @activity.cost_img %>" />
-            </div>
+                  <li>
+                    <div class="cost">
+                      <img src= "<%= @activity.cost_img %>" />
+                    </div>
+                  </li>
+                </ul>
+              </div>
             <!-- end icon display -->
 
 
             <!-- display tags -->
-            <div class="all tags">
-              <% tags = @activity.tags %>
-              <% tags.each do |tag| %>
-                <div class="individual tag"> 
-                  <%= tag.name %>  
-                </div>
-              <% end %>
-            </div>
+              <div class="all_tags">
+                <ul>
+                  <li>
+                  <% tags = @activity.tags %>
+                  </li>
+                  <li>
+                  <% tags.each do |tag| %>
+                    <div class="individual tag"> 
+                    <%= tag.name %>  
+                    </div>
+                  </li>
+                  <% end %>
+                </ul>
+              </div>
             <!-- end tags -->
+            </div>
 
               
             
-          <div class="list_view">
-              <div class="list_text">
-                <p>
-                  <%= @activity.content %>
-                </p>
+              <div class="list_view">
+                <div class="list_text">
+                  <p>
+                    <%= @activity.content %>
+                  </p>
+                </div>
               </div>
+            
+            </ul>
           </div>
       
 
