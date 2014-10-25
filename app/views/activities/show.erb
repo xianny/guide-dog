@@ -16,70 +16,70 @@
 
                   
                        <!-- show short version -->                   
-                    <div class="row mt">   
+            <div class="row mt">   
 
 
 <!--                     create avatar div for post creator
- -->                    <div class="user avatar">
-                          <img src="<%= @activity.user.avatar %>" />
-                    </div>
+-->          <div class="user_avatar">
+                <img src="<%= @activity.user.avatar %>" />
+            </div>
 
-                       <div class="create_button">
-                            <%= erb :'activities/show_short' %>
-                          </div>
-                    </div>
-                      <!-- end short version --> 
-
-                      <!-- display icons for cost, social, at_home -->
-
-                      <% if @activity.social %>
-                        <img src=" " alt="social icon"/>
-                      <% else %>
-                        <img src="" alt="alone icon" />
-                      <% end %>
-
-
-
-                      <% if @activity.at_home %>
-                        <img src=" " alt="at home icon" />
-                      <% else %>
-                        <img src="" alt="outdoors icon" />
-                      <% end %>
-
-
-                    <div class="cost">
-                      <img src= "<%= @activity.cost_img %>" />
-                    </div>
-                    <!-- end icon display -->
-
-
-                    <!-- display tags -->
-                    <div class="all tags">
-                      <% tags = @activity.tags %>
-                      <% tags.each do |tag| %>
-                        <div class="individual tag"> 
-                          <%= tag.name %>  
-                        </div>
-                      <% end %>
-                    </div>
-                    <!-- end tags -->
-
-                      
-                    
-                  <div class="list_view">
-                      <div class="list_text">
-                        <p>
-                          <%= @activity.content %>
-                        </p>
-                      </div>
+               <div class="create_button">
+                    <%= erb :'activities/show_short' %>
                   </div>
+            </div>
+              <!-- end short version --> 
+
+              <!-- display icons for cost, social, at_home -->
+
+              <% if @activity.social %>
+                <img src=" " alt="social icon"/>
+              <% else %>
+                <img src="" alt="alone icon" />
+              <% end %>
+
+
+
+              <% if @activity.at_home %>
+                <img src=" " alt="at home icon" />
+              <% else %>
+                <img src="" alt="outdoors icon" />
+              <% end %>
+
+
+            <div class="cost">
+              <img src= "<%= @activity.cost_img %>" />
+            </div>
+            <!-- end icon display -->
+
+
+            <!-- display tags -->
+            <div class="all tags">
+              <% tags = @activity.tags %>
+              <% tags.each do |tag| %>
+                <div class="individual tag"> 
+                  <%= tag.name %>  
+                </div>
+              <% end %>
+            </div>
+            <!-- end tags -->
+
               
+            
+          <div class="list_view">
+              <div class="list_text">
+                <p>
+                  <%= @activity.content %>
+                </p>
+              </div>
+          </div>
+      
 
-                  <!-- TODO style div for new review submission -->
-                  <!-- TODO make an if statement to check if logged in -->
-                  <div class="new_review">
-                    <%= erb :'reviews/new' %>
-                  </div>
+          <!-- TODO style div for new review submission -->
+          <!-- TODO make an if statement to check if logged in -->
+          <div class="new_review">
+            <%= erb :'reviews/new' %>
+          </div>
 
                   <!-- TODO end -->
 
