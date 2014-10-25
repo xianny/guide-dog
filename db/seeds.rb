@@ -4,7 +4,7 @@ require 'faker'
 FactoryGirl.define do 
   factory :user do
     username { Faker::Internet.user_name }
-    password { Faker::Internet.password }
+    password 'asdf' ##{ Faker::Internet.password }'
     email  { Faker::Internet.safe_email }
     avatar { Faker::Avatar.image }
   end
@@ -14,10 +14,6 @@ end
 ## START CREATION
 ##
 
-# Creates 30 new users
-30.times do
-  FactoryGirl::create(:user)
-end
 
 # Creates 10 new tags
 Tag.create(name:'food')
@@ -32,7 +28,17 @@ Tag.create(name:'ski')
 Tag.create(name:'park')
 @tags = Tag.all
 
-users = User.all
+
+# Creates 30 new users
+30.times do
+  FactoryGirl::create(:user)
+end
+
+user = User.first
+user.username = 'test'
+user.save
+
+
 
 ## Each user posts 2 activities and adds 3 tags to it
 users.each do |user|
@@ -60,4 +66,5 @@ users.each do |user|
     review.save if review.valid?
   end
 end
+
 
