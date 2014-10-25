@@ -71,12 +71,7 @@
 */}
 
 
-.comment_input {
-  margin: 0 auto;
-  height: 29%;
-  width: 55%;
-/*  background-color: blue;
-*/}
+
 
 
 .list_text {
@@ -91,6 +86,27 @@
   padding: 50px;
 }
 
+
+
+
+.user_avatar {
+  height: 100px;
+  width: 100px;
+  background-color: red;
+  border-radius: 100%;
+}
+
+
+
+/*comment css
+*/
+
+.comment_input {
+  margin: 0 auto;
+  height: 29%;
+  width: 55%;
+/*  background-color: blue;
+*/}
 .comment_avatar {
   margin-top: 10px;
   margin-left: 26px;
@@ -124,6 +140,12 @@
   right: 261px;
 }
 
+
+
+
+
+/*review css
+*/
 .review_comment {
   width: 60%;
   margin: 0 auto;
@@ -160,7 +182,6 @@
 }
 
 .review_rating {
-  background-color: red;
   width: 28px;
 }
 
