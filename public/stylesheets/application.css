@@ -96,7 +96,7 @@
   margin-left: 26px;
 }
 
-.comment_avatar {
+.comment_avatar img {
   width: 80px;
   height: 80px;
   border-radius: 100%;
@@ -124,7 +124,43 @@
   left: 600px;
 }
 
+.review_comment {
+  width: 60%;
+  margin: 0 auto;
+  padding-bottom: 45px;
+}
 
+.review_text {
+  width: 70%;
+  float: right;
+  padding: 25px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 11px;
+  margin-right: 29px;
+  margin-top: 20px;
+}
+
+.review_created_by {
+  float: right;
+  margin-right: 39px;
+  margin-top: 5px;
+}
+
+.review_avatar img {
+  height: 80px;
+  width: 80px;
+  border: 1px solid black;
+  border-radius: 100%;
+  margin-left: 84px;
+  margin-top: 3px;
+}
+
+.review_rating {
+  position: relative;
+  left: 188px;
+  top: 26px;
+}
 
 
 

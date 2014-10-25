@@ -5,14 +5,18 @@
 
 
 
-<div>
-  <%= @review.comment %>
-
-  <%= @review.rating %>
-
-  posted by <%= get_username(@review.user_id) %> 
-  at <%= @review.created_at %>
-
-
-  avatar: <img src="<%= @review.user.avatar %>">  
+<div class="review_comment">
+  <div class="review_text">
+    <%= @review.comment %>
+  </div>
+  <div class="review_rating li_star">
+    
+    <%= @review.rating %>
+  </div>
+  <div class="review_created_by">
+    posted by <%= get_username(@review.user_id) %> at <%= @review.created_at %>
+  </div>
+  <div class="review_avatar">
+    <img src="<%= @review.user.avatar %>">  
+  </div>
 </div>

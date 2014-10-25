@@ -64,7 +64,7 @@ end
 # Display login screen
 get '/sessions/new' do
   @user = User.new
-  erb :'/sessions/new'
+  erb :'/sessions/new', layout: false
 end
 
 # Logs in
