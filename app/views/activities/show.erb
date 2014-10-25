@@ -77,7 +77,7 @@
 
                   <!-- TODO style div for new review submission -->
                   <!-- TODO make an if statement to check if logged in -->
-                  <div class="new review">
+                  <div class="new_review">
                     <%= erb :'reviews/new' %>
                   </div>
 
@@ -88,13 +88,13 @@
 
 
                     <!-- list of ALL reviews -->
-                    <div class="all reviews">
+                    <div class="all_reviews">
                       <% @activity.reviews.each do |review| %>
                         <% @review = review %>
                         
 
                         <!-- individual review -->
-                        <div class="individual review">
+                        <div class="individual_review">
                           <%= erb :'reviews/show' %>
                         </div>
                         <!-- end individual review -->

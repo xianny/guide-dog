@@ -119,18 +119,20 @@
 }
 
 .comment_button {
-  position: relative;
-  top: 34px;
-  left: 600px;
+  position: absolute;
+  top: 111px;
+  right: 261px;
 }
 
 .review_comment {
   width: 60%;
   margin: 0 auto;
-  padding-bottom: 45px;
+  position: relative;
+  clear: both;
 }
 
 .review_text {
+  position: relative;
   width: 70%;
   float: right;
   padding: 25px;
@@ -152,15 +154,23 @@
   width: 80px;
   border: 1px solid black;
   border-radius: 100%;
-  margin-left: 84px;
-  margin-top: 3px;
+  top: 22px;
+  left: 5%;
+  position: absolute;
 }
 
 .review_rating {
-  position: relative;
-  left: 188px;
-  top: 26px;
+  background-color: red;
+  width: 28px;
 }
 
+.new_review {
+  height: 140px;
+  position: relative;
+}
+
+.individual_review {
+  height: 180px;
+}
 
 

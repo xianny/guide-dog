@@ -6,12 +6,10 @@
 
 
 <div class="review_comment">
-  <div class="review_text">
-    <%= @review.comment %>
-  </div>
-  <div class="review_rating li_star">
-    
-    <%= @review.rating %>
+  
+  <div class="review_text">  
+    <div class="review_rating li_star"><%= @review.rating %></div>
+    <p><%= @review.comment %></p>
   </div>
   <div class="review_created_by">
     posted by <%= get_username(@review.user_id) %> at <%= @review.created_at %>
