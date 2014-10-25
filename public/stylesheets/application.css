@@ -1,6 +1,19 @@
 .logo {
   margin-left: 37px;
+  position: absolute;
+  left: 0;
+  top: -107px;
 }
+
+
+.header {
+  height: 50px;
+}
+
+.logout {
+  height: 30px;
+}
+
 
 .activity {
   background-color: lightblue;
@@ -23,15 +36,31 @@
   margin-bottom: 16px;
 }
 
+.create_input {
+  display: flex;
+  padding: 15px;
+}
+
+.create_input h4 {
+  margin: 0 auto;
+  height: 40px;
+}
+
+.create_input h4 input {
+  height: 40px;
+  background-color: #F5CF72; 
+}
+
+
 .main_content_box {
   height: 534px;
 }
 
-
-.create {
-  text-align: center;
-  margin: 15px 20px 0 0;
+.li_star {
+  color: white;
+  font-size: 1.5em;
 }
+
 
 .content {
 /*  background-color: tomato;
@@ -169,6 +198,10 @@ width: 55%;
 }
 
 
+.new_activity {
+  height: 490px;
+  background-color: orange;
+}
 
 
 /*review css

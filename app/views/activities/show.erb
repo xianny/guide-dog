@@ -4,78 +4,70 @@
   Receives @review as an instance variable when redirecting from previous review attempt -->
 
 
-
-
-
-
 <section id="main-content">
-          <section class="wrapper site-min-height">
-            <h3><i class="fa fa-angle-right"></i> Logged in sadad</h3>
-            <div class="row mt main_content_box">
-              <div class="col-lg-12">
-
-                  
-                       <!-- show short version -->                   
-            <div class="row mt">   
-
-<!--         create avatar div for post creator
--->         
-              <div class="create_button">
-                <%= erb :'activities/show_short' %>
+  <section class="wrapper site-min-height">
+    <h3><i class="fa fa-angle-right"></i> Logged in sadad</h3>
+      <div class="row mt main_content_box">
+        <div class="col-lg-12">
+          <div class="row mt">   
+            
+            <div class="create_button">
+              <%= erb :'activities/show_short' %>
               </div>
-
-
             </div>
               <!-- end short version --> 
 
               <!-- display icons for cost, social, at_home -->
+            <div class="show_icons">
+              <ul>
+                
+                <li>
+                  <% if @activity.social %>
+                    <img src=" " alt="social icon"/>
+                  <% else %>
+                    <img src="" alt="alone icon" />
+                  <% end %>
+                </li>
 
+                <li>
+                  <% if @activity.at_home %>
+                    <img src=" " alt="at home icon" />
+                  <% else %>
+                    <img src="" alt="outdoors icon" />
+                  <% end %>
+                </li>
 
-              <div class="show_icons">
-                <ul>
-                  <li>
-                    <% if @activity.social %>
-                      <img src=" " alt="social icon"/>
-                    <% else %>
-                      <img src="" alt="alone icon" />
-                    <% end %>
-                  </li>
-
-                  <li>
-                    <% if @activity.at_home %>
-                      <img src=" " alt="at home icon" />
-                    <% else %>
-                      <img src="" alt="outdoors icon" />
-                    <% end %>
-                  </li>
-
-                  <li>
-                    <div class="cost">
-                      <img src= "<%= @activity.cost_img %>" />
-                    </div>
-                  </li>
-                </ul>
-              </div>
+                <li>
+                  <div class="cost">
+                    <img src= "<%= @activity.cost_img %>" />
+                  </div>
+                </li>
+                
+              </ul>
+            </div>
             <!-- end icon display -->
 
 
             <!-- display tags -->
-              <div class="all_tags">
-                <ul>
-                  <li>
+            <div class="all_tags">
+              <ul>
+                
+                <li>
                   <% tags = @activity.tags %>
-                  </li>
-                  <li>
+                </li>
+                
+                <li>
                   <% tags.each do |tag| %>
-                    <div class="individual tag"> 
+                  <div class="individual tag"> 
                     <%= tag.name %>  
-                    </div>
-                  </li>
+                  </div>
                   <% end %>
-                </ul>
-              </div>
-            <!-- end tags -->
+                </li>
+
+              </ul>
             </div>
+          <!-- end tags -->
+          </div>
 
               
             
