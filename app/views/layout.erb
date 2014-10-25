@@ -39,10 +39,36 @@
             <!--logo end-->
             
             <div class="top-menu">
+
+              <!-- LOGIN/LOGOUT BUTTONS -->
               <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.html">Login/Create</a></li>
+                <% if session[:user_id] %>
+
+                  <!-- LOGIN BUTTON -->
+                  <form action="/sessions/delete" method="post">
+                    <li>
+                      <input class="logout" type="submit" value="Logout"> <!-- TODO style -->
+                    </li> 
+                  </form>
+                  <!-- END LOGIN BUTTON -->
+
+                <% else %>
+
+                  <!-- LOGOUT BUTTON -->
+                    <li>
+                      <a class="logout" href="/sessions/new">
+                        <input class="logout" type="submit" value="Login">
+                      </a>
+                    </li>
+                  <!-- END LOGOUT BUTTON -->
+
+                <% end %>
+
               </ul>
+              <!-- END LOGIN/LOGOUT BUTTONS -->
+
             </div>
+
         </header>
       <!--header end-->
       

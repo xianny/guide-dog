@@ -64,7 +64,7 @@ end
 # Display login screen
 get '/sessions/new' do
   @user = User.new
-  erb :'/sessions/new'
+  erb :'/sessions/new', layout: false
 end
 
 # Logs in
@@ -73,14 +73,25 @@ post '/sessions' do
     username: params[:username],
     password: params[:password]
   ).first
-  if user
-    session[:user_id] = user.id 
-    redirect "/users/#{user.id}"
+  if @user
+    session[:user_id] = @user.id 
+    redirect "/users/#{@user.id}"
   else
-    erb :'sessions/new'
+    @user = User.new(
+      username: params[:username],
+      password: params[:password]
+    )
+    @user.errors[:sessions] << 'Something went wrong'
+    erb :'sessions/new', layout: false
   end
 end
 
+# Logs out
+post '/sessions/delete' do
+  session.clear
+  @activities = Activity.all
+  redirect '/activities'
+end
 
 
 #### ACTIVITIES ####
