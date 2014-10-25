@@ -39,7 +39,7 @@ user.username = 'test'
 user.save
 
 
-
+users = User.all
 ## Each user posts 2 activities and adds 3 tags to it
 users.each do |user|
   2.times do 

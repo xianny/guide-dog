@@ -3,11 +3,14 @@
     Receives @activity as an instance variable -->
 
 
+    <!-- <div class="activity_creator_avatar"></div> -->
+
   <h3 class="rating_box"><%= @activity.rating %></h3>
-      <a class="title" href = "/activities/<%= @activity.id %>">
-        <h3><%= @activity.title %></h3>
-        <img src="<%= @activity.user.avatar%>">
-      </a> 
+  <a class="title" href = "/activities/<%= @activity.id %>">
+    <h3><%= @activity.title %></h3>
+
+    <img class="activity_creator_avatar" src="<%= @activity.user.avatar%>">
+  </a> 
 
 
 
