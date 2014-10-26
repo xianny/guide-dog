@@ -53,34 +53,32 @@
             
             <div class="top-menu">
 
-              <!-- LOGIN/LOGOUT BUTTONS -->
+            <!-- == LOGIN/LOGOUT BUTTONS == -->
               <ul class="nav pull-right top-menu">
                 <% if session[:user_id] %>
 
-                  <!-- LOGIN BUTTON -->
+                <!-- LOGOUT BUTTON -->
                   <form action="/sessions/delete" method="post">
                     <li>
-
-              
-                      <input class="logout btn btn-default" type="submit" value="Logout"> <!-- TODO style -->
+                      <input class="logout btn btn-default" type="submit" value="Logout"> 
                     </li> 
                   </form>
-                  <!-- END LOGIN BUTTON -->
+                <!-- END LOGOUTBUTTON -->
 
                 <% else %>
 
-                  <!-- LOGOUT BUTTON -->
+                <!-- LOGIN BUTTON -->
+                  <form action="/sessions/new" method="get">
                     <li>
-                      <a class="logout" href="/sessions/new">
-                        <input class="logout btn btn-default" type="submit" value="Login">
-                      </a>
+                      <input class="logout btn btn-default" type="submit" value="Login">
                     </li>
-                  <!-- END LOGOUT BUTTON -->
+                  </form>
+                <!-- END LOGIN BUTTON -->
 
                 <% end %>
 
               </ul>
-              <!-- END LOGIN/LOGOUT BUTTONS -->
+            <!-- END == LOGIN/LOGOUT BUTTONS == -->
 
             </div>
 
@@ -91,14 +89,13 @@
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
       <!--sidebar start-->
- 
-      <!--sidebar end-->
-      
       <% if session[:user_id] %>
 
         <%= erb :'sidebar' %>
 
       <%end%>
+      <!--sidebar end-->
+      
      
 
   <%= yield %>

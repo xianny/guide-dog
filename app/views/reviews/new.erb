@@ -5,24 +5,20 @@ DOES NOT SHOW UP IF NOT LOGGED IN -->
 
 
 <div class="comment_input">
+  
+  <% if @review.errors.any? %>
+    <div class="error_msg">            
+            <strong>Some issues with your submission, please fix them:</strong>
+            <ul>
+              <% @review.errors.full_messages.each do |error_message| %>
+                <!-- single error message 
+                  this <li> will be repeated for each error -->
+                <li><%= error_message %></li>
+              <% end %>
+            </ul>
+     </div>
+        <% end %>
 
-<!-- If submission was invalid, will display error messages. 
-                    This will not be rendered at all if there are no errors -->
-                    <% if @review.errors.any? %>
-                      <div class="">
-                        
-                        <strong>Some issues with your submission, please fix them:</strong>
-                        <ul>
-                          <% @review.errors.full_messages.each do |error_message| %>
-                            <!-- single error message 
-                              this <li> will be repeated for each error -->
-                            <li><%= error_message %></li>
-                          <% end %>
-                        </ul>
-                      
-                      </div>
-                    <% end %>
-                    <!-- end error messages -->
                     
     
     <!-- current user's avatar when logged in -->
@@ -32,6 +28,9 @@ DOES NOT SHOW UP IF NOT LOGGED IN -->
   <!-- end log in -->
 
   <form action="/activities/<%= @activity.id %>/reviews" method="post">
+      <% if !session[:user_id] %>
+      Sign up or log in to post a comment or rating!
+      <% end %>
     <textarea class="form-control comment_margin comment_text text_input" rows="4" name="comment" placeholder="Rate or comment on this activity!"></textarea>
   <button type="submit" class="review_btn btn btn-default">Submit</button>
   </form>

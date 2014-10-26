@@ -7,8 +7,12 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
   validates :password, presence: true, confirmation: true
   validates :email, confirmation: true, if: "email"
+  after_initialize :set_default_avatar
   ## TODO validate and set default :avatar
 
+  def set_default_avatar
+    self.avatar = "/img/doge.jpeg" if avatar.nil?
+  end
 
   # Variables: tag = Tag
   # Returns total proficiency associated with the tag as Float

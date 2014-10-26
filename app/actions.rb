@@ -187,7 +187,7 @@ post '/activities/:a_id/reviews' do
   @activity = Activity.find(params[:a_id].to_i)
   params[:rating] = params[:rating].to_i if params[:rating]
   @review = Review.create(
-    comment:      params[:comment],
+    comment:      params[:comment].gsub(/\*/," "),
     rating:       params[:rating],
     activity_id:  params[:a_id].to_i,
     user_id:      session[:user_id] 
