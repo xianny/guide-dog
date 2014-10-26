@@ -133,6 +133,7 @@ end
 # Display single activity
 get '/activities/:a_id' do 
   @activity = Activity.find(params[:a_id])
+  @review = Review.new
   erb :'activities/show'
 end
 
