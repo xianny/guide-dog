@@ -43,7 +43,7 @@ class Activity < ActiveRecord::Base
   def rating
     total = 0
     reviews.each do |review|
-      total += review.rating
+      total += review.rating if review.rating
     end
     total
   end
