@@ -1,9 +1,7 @@
-/*#main-content {
-  background-image: url(/img/bg_1.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
+#main-content {
+  background-image: url(/img/bgg.png);
 }
-*/
+
 
 .logo {
   margin-left: 37px;
@@ -11,6 +9,7 @@
 
 h1 {
   margin: 0 auto;
+  font-family: 'Rajdhani', sans-serif;
 }
 
 div h1 {
@@ -50,8 +49,9 @@ div h1 {
 
 .row .mt {
   margin-top: 0;
-  height: 143px;
+  height: 210px;
 }
+
 
 .location h1 {
   text-align: center;
@@ -63,6 +63,7 @@ div h1 {
   background-color: #F5CF72;
   height: 100px;
   margin: 0 auto;
+  margin: 80px auto 80px auto;
 }
 
 .create_title {
@@ -71,10 +72,6 @@ div h1 {
 }
 
 
-.rating_box {
-  position: absolute;
-  top: 40px;
-}
 
 
 
@@ -126,8 +123,9 @@ div h1 {
 }
 
 .rating_box {
-  position: relative;
-  left: 5px;
+  position: absolute;
+  right: 190px;
+  top: 18px;
   height: 60px;
   width: 60px;
   text-align: center;
@@ -136,6 +134,7 @@ div h1 {
 
 .title {
   text-align: center;
+  padding: 50px;
   margin-top: -30px;
 }
 
@@ -171,12 +170,12 @@ div h1 {
 .all_tags {
   margin: 0 auto;
   justify-content: center;
-  display: flex;
+  display: inline-flex;
   position: relative;
+  left: 70px;
 }
 
 .all_tags ul {
-  display: inline-flex;
 }
 
 .new_btn {
@@ -333,17 +332,96 @@ div h1 {
 
 
 .show_icons {
-  height: 200px;
-  width: 100%;
+  height: 80px;
+  width: 30%;
+  position: absolute;
+  top: -40px;
+  left: 0;
 }
+
+
 
 
 
 .icon_style {
-  height: 40px;
-  width: 40px;
-  background-color: orange;
-  border-radius: 100%;
+  height: 60px;
+  width: 60px;
   margin: 10px;
+  
 
 }
+
+.icon_style img {
+  height: 60px;
+  width: 60px;
+
+
+}
+
+.out img {
+  height: 40px;
+  width: 40px;
+  margin-top: 5px;
+
+}
+
+.house {
+  background-color: white;
+  border-radius: 100%;
+  padding: 3px;
+  border: 1px solid black;
+}
+
+.don_burks img {
+  border-radius: 100%;
+  border: 1px solid black;
+}
+
+
+
+.create_first {
+  margin: 0 auto;
+}
+
+
+.all_tags {
+  position: absolute;
+  top: 40px;
+  left: 15px;
+}
+
+.individual_tag {
+  margin-left: 10px;
+}
+
+
+
+
+.login_page {
+  position: relative;
+  height: 900px;
+  width: 100%;
+/*  background-color: lightblue;
+*/  margin-bottom: 0;
+}
+
+.doge {
+  background-image: url(/img/doge.jpeg);
+  background-size: cover;
+  height: 600px;  
+  width: 600px;
+  border-radius: 100%;
+  position: absolute;
+  top: 100px;
+}
+
+.login_form {
+  position: absolute;
+  top: 400px;
+  left: 60%;
+}
+
+
+
+
+

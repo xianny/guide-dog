@@ -7,6 +7,39 @@
         :password
     and POST to '/sessions' -->
 
+
+
+    <div class="login_page">
+
+    <div class="doge"></div>
+
+
+      <div class="login_form">
+ 
+        <!-- collects input for login -->
+          <form action = "/sessions" method = "post">
+            <div>
+              <label>Username:</label>
+              <input type="text" value="<%= @user.username %>" name="username" >
+            </div>
+            <div>
+              <label>Password:</label>
+              <input type="password" name="password">
+            </div>
+            <div>
+              <input type="submit" value="Submit">
+            </div>
+
+          </form>
+        <!-- end input form -->
+
+         </div>
+         </div>
+
+
+
+
+
 <!-- If submission was invalid, will display error messages. 
   This <div> will not be rendered at all if there are no errors -->
     <% if @user.errors.any? %>
@@ -21,19 +54,4 @@
     <% end %>
   <!-- end errors -->
 
-  <!-- collects input for login -->
-    <form action = "/sessions" method = "post">
-      <div>
-        <label>Username:</label>
-        <input type="text" value="<%= @user.username %>" name="username" >
-      </div>
-      <div>
-        <label>Password:</label>
-        <input type="password" name="password">
-      </div>
-      <div>
-        <input type="submit" value="Submit">
-      </div>
 
-    </form>
-  <!-- end input form -->
