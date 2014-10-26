@@ -28,19 +28,13 @@
 
   <!-- display tags -->
   <div class="all_tags">
-    <ul>
       
-      <li>
         <% tags = @activity.tags %>
-      </li>
       
-      <li>
         <% tags.each do |tag| %>
-        <div class="individual tag"> 
+        <div class="individual_tag"> 
           <%= tag.name %>  
         </div>
         <% end %>
-      </li>
 
-    </ul>
   </div>

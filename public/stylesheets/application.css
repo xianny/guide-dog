@@ -1,9 +1,7 @@
-/*#main-content {
-  background-image: url(/img/bg_1.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
+#main-content {
+  background-image: url(/img/bgg.png);
 }
-*/
+
 
 .logo {
   margin-left: 37px;
@@ -11,6 +9,7 @@
 
 h1 {
   margin: 0 auto;
+  font-family: 'Rajdhani', sans-serif;
 }
 
 div h1 {
@@ -50,7 +49,7 @@ div h1 {
 
 .row .mt {
   margin-top: 0;
-  height: 143px;
+  height: 210px;
 }
 
 
@@ -73,10 +72,6 @@ div h1 {
 }
 
 
-.rating_box {
-  position: absolute;
-  top: 40px;
-}
 
 
 
@@ -128,8 +123,9 @@ div h1 {
 }
 
 .rating_box {
-  position: relative;
-  left: 5px;
+  position: absolute;
+  right: 190px;
+  top: 18px;
   height: 60px;
   width: 60px;
   text-align: center;
@@ -138,6 +134,7 @@ div h1 {
 
 .title {
   text-align: center;
+  padding: 50px;
   margin-top: -30px;
 }
 
@@ -175,6 +172,7 @@ div h1 {
   justify-content: center;
   display: inline-flex;
   position: relative;
+  left: 70px;
 }
 
 .all_tags ul {
@@ -384,4 +382,46 @@ div h1 {
 .create_first {
   margin: 0 auto;
 }
+
+
+.all_tags {
+  position: absolute;
+  top: 40px;
+  left: 15px;
+}
+
+.individual_tag {
+  margin-left: 10px;
+}
+
+
+
+
+.login_page {
+  position: relative;
+  height: 900px;
+  width: 100%;
+/*  background-color: lightblue;
+*/  margin-bottom: 0;
+}
+
+.doge {
+  background-image: url(/img/doge.jpeg);
+  background-size: cover;
+  height: 600px;  
+  width: 600px;
+  border-radius: 100%;
+  position: absolute;
+  top: 100px;
+}
+
+.login_form {
+  position: absolute;
+  top: 400px;
+  left: 60%;
+}
+
+
+
+
 
