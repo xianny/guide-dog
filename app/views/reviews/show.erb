@@ -12,7 +12,7 @@
     <p><%= @review.comment %></p>
   </div>
   <div class="review_created_by">
-    posted by <%= get_username(@review.user_id) %> at <%= @review.created_at %>
+    posted by <%= username_href(@review.user_id) %> at <%= @review.created_at %>
   </div>
   <div class="review_avatar">
     <img src="<%= @review.user.avatar %>">  

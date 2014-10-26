@@ -5,25 +5,26 @@ class Review < ActiveRecord::Base
 
 
   validate :rating_or_comment_exists
-  validate :cannot_review_self
+  validate :cannot_rate_self
   validates :user_id, presence: true
   validates :activity_id, presence: true
 
-  after_save :update_activity ## how to make this so it distinguishes between new ratings and updated ratings?
+  # after_save :update_activity ## how to make this so it distinguishes between new ratings and updated ratings?
 
   def rating_or_comment_exists
-    if !(self.rating || self.comment)
-      errors.add(:rating, 'Must have either rating or comment')
-      errors.add(:comment, 'Must have either rating or comment')
+    if !(self.rating || self.comment.length > 0 )
+      errors.add(:base, 'Must have either rating or comment')
     end
   end
 
-  def cannot_review_self
-    errors.add(:user_id, 'Cannot review activity posted by self') if activity.user_id == user.id
+  def cannot_rate_self
+    if activity_id
+      errors.add(:user_id, 'Cannot rate activity posted by self') if activity.user_id == user.id && !rating.nil?
+    end
   end
 
   def update_activity
-    activity.save_rating_by(user,rating) if rating
+    activity.save_rating_by(user,rating) if rating 
   end
 
 

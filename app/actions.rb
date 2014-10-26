@@ -8,8 +8,9 @@ helpers do
   end
 
   # returns String
-  def get_username(id)
-    User.find(id).username || nil
+  def username_href(id)
+    user = User.find(id)
+    user ? "<a href='/users/#{id}'>#{user.username}</a>" : nil
   end
 
   def all_tags
@@ -101,6 +102,7 @@ post '/sessions' do
   ).first
   if @user
     session[:user_id] = @user.id 
+    session[:username] = @user.username
     redirect "/users/#{@user.id}"
   else
     @user = User.new(
@@ -182,20 +184,16 @@ end
 # Post new review
 post '/activities/:a_id/reviews' do
   redirect "/activities/#{params[:a_id]}" if !session[:user_id]
-  reviewer =   User.find(session[:user_id])
-  author = User.find(params[:u_id])
-  
-  @activity = Activity.find(params[:a_id])
-
+  @activity = Activity.find(params[:a_id].to_i)
+  params[:rating] = params[:rating].to_i if params[:rating]
   @review = Review.create(
     comment:      params[:comment],
     rating:       params[:rating],
-    activity_id:  params[:a_id],
+    activity_id:  params[:a_id].to_i,
     user_id:      session[:user_id] 
   )
-
   if @review.save
-    redirect "users/#{params[:u_id]}/activities/#{params[:a_id]}"
+    redirect "/activities/#{params[:a_id]}"
   else
     erb :'activities/show'
   end
