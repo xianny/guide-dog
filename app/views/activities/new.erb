@@ -26,10 +26,17 @@
 
                 <form class="new_activity inline-form" action = "/users/<%= session[:user_id] %>/activities" method = "post">
 
-                  <!-- If submission was invalid, will display error messages. 
+                  
+
+
+                    <div class="row mt">  
+                      <div class="create_input create_button">
+
+
+                    <!-- If submission was invalid, will display error messages. 
                     This will not be rendered at all if there are no errors -->
                     <% if @activity.errors.any? %>
-                      <div class="error messages">
+                      <div class="error_msg">
                         
                         <strong>Some issues with your submission, please fix them:</strong>
                         <ul>
@@ -43,13 +50,11 @@
                       </div>
                     <% end %>
                     <!-- end error messages -->
-
-
-                    <div class="row mt">      
-                      <div class="create_input create_button">
+                    
                         <h4><input type="text" placeholder="<%= @activity.title || "Enter title here..." %>" class="no_border" name="title" ></h4>
                       </div>
                     </div>
+
 
 
                   <div class="location">

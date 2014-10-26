@@ -40,18 +40,5 @@
 
 
 
-<!-- If submission was invalid, will display error messages. 
-  This <div> will not be rendered at all if there are no errors -->
-    <% if @user.errors.any? %>
-      <div class="errors">
-        <strong>Some issues with your submission, please fix them:</strong>
-        <ul>
-          <% @user.errors.full_messages.each do |error_message| %>
-            <li><%= error_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-  <!-- end errors -->
 
 

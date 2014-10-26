@@ -49,6 +49,9 @@ div h1 {
 
 .logout {
   height: 30px;
+  margin-top: 25%;
+  background-color: gray;
+  color: #ddd;
 }
 .location {
 
@@ -348,10 +351,13 @@ div h1 {
 
 .review_btn {
   position: absolute;
-  bottom: 21px;
 }
 
+.error_msg {
+  position: absolute;
+  top: -5%;
 
+}
 
 .show_icons {
   height: 80px;
