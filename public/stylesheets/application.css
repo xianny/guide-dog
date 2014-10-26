@@ -1,10 +1,36 @@
+/*#main-content {
+  background-image: url(/img/bg_1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+*/
+
 .logo {
   margin-left: 37px;
-  position: absolute;
-  left: 0;
-  top: -107px;
 }
 
+h1 {
+  margin: 0 auto;
+}
+
+div h1 {
+  text-align: center; 
+}
+
+.divider {
+  height: 1px;
+  width: 50%;
+  margin: 50px auto;
+  border: 1px dotted #424A5D;
+}
+
+#main-content {
+  margin-left: 0;
+}
+
+#main-content.logged-in {
+  margin-left: 210px;
+}
 
 .header {
   height: 50px;
@@ -13,7 +39,9 @@
 .logout {
   height: 30px;
 }
+.location {
 
+}
 
 .activity {
   background-color: lightblue;
@@ -22,35 +50,57 @@
 
 .row .mt {
   margin-top: 0;
-  height: 103px;
+  height: 143px;
+}
+
+.location h1 {
+  text-align: center;
 }
 
 .create_button {
   position: relative;
-  border: 1px solid black;
-  height: 70px;
-  width: 60%;
+  width: 80%;
   background-color: #F5CF72;
-  border-radius: 5px;
+  height: 100px;
   margin: 0 auto;
-  margin-bottom: 16px;
 }
+
+.create_title {
+  text-align: center;
+  padding: 36px;
+}
+
+
+.rating_box {
+  position: absolute;
+  top: 40px;
+}
+
+
+
 
 .create_input {
   display: flex;
-  padding: 15px;
+  padding: 28px;
 }
 
 .create_input h4 {
   margin: 0 auto;
   height: 40px;
+  width: 100%;
+  border: none;
 }
 
 .create_input h4 input {
   height: 40px;
   background-color: #F5CF72; 
+  width: 100%;
 }
 
+.no_border {
+  border: none;
+  text-align: center;
+}
 
 .main_content_box {
   height: 534px;
@@ -86,19 +136,15 @@
 
 .title {
   text-align: center;
-  margin-top: 0;
-  position: relative;
-  top: -78px;
+  margin-top: -30px;
 }
-
 
 
 .list_view {
   width: 70%;
   height: 60%;
   margin: 0 auto;
-/*  background-color: lightblue;
-*/}
+}
 
 
 .show_icons {
@@ -106,6 +152,15 @@
     justify-content: center;
     display: flex;
 
+}
+
+.tag_div {
+  display: flex;
+  justify-content: center;
+}
+
+.tag_div div {
+  padding: 5px;
 }
 
 .show_icons ul {
@@ -124,19 +179,25 @@
   display: inline-flex;
 }
 
-
+.new_btn {
+  position: absolute;
+  bottom: 32px;
+}
 
 .list_text {
   width: 100%;
-  height: 284px;
-  background-color: #FFFFFF;
+  height: 350px;
+  background-color: #F5CF72;
   margin: 0 auto;
-  border-radius: 5px;
-  border: 1px solid black;
   position: relative;
   top: 20px;
-  overflow: scroll;
   padding: 50px;
+}
+
+.text_input {
+  width: 100%;
+  background-color: #F5CF72;
+  border: none;
 }
 
 
@@ -144,16 +205,22 @@
   height: 50px;
   width: 50px;
   background-color: white;
-  border: 1px solid black;
-  border-radius: 8px;
-  float: right;
-  position: relative;
-  bottom: 49px;
-  right: 10px;
+  border-radius: 100%;
+  position: absolute;
+  top: 25px;
+  right: 25px;
 }
 
 
+.param_div {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
 
+.param_div div {
+  margin: 5px;
+}
 
 /*comment css 
 */
@@ -199,8 +266,7 @@ width: 55%;
 
 
 .new_activity {
-  height: 490px;
-  background-color: orange;
+  height: 680px;
 }
 
 

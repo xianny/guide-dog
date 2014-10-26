@@ -133,7 +133,7 @@ post '/users/:u_id/activities' do
     social:   params[:social],
     at_home:  params[:at_home]
   )
-  if activity.save
+  if @activity.save
     redirect 'users/#{params[:u_id]}'
   else
     erb :'activities/new'

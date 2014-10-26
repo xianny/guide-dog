@@ -9,15 +9,6 @@
 
     <title>Guide Dog</title>
 
-    <!--     FORM STYLESHEET AND JS -->
-    <link rel="stylesheet" type="text/css" href="/stylesheets/form_stylesheets/css/style.css">
-    <script type="text/javascript" href="/stylesheets/form_stylesheets/main.js"></script>
-    <script type="text/javascript" href="/stylesheets/form_stylesheets/jquery-2.1.1.js"></script>
-
-
-
-
-
     <!-- Bootstrap core CSS -->
     <link href="/stylesheets/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
@@ -28,9 +19,6 @@
     <link href="/stylesheets/css/style-responsive.css" rel="stylesheet">
 
     <link href="/lineicons/style.css" type="text/css" rel="stylesheet">
-
-
-
 
 
 
@@ -93,32 +81,14 @@
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
       <!--sidebar start-->
-      <aside>
-          <div id="sidebar" class="nav-collapse ">
-              <!-- sidebar menu start-->
-              <ul class="sidebar-menu" id="nav-accordion">
-              
-                  <p class="centered"><a href="profile.html"><img src="/img/doge.jpeg" class="img-circle" width="60"></a></p>
-                  <h5 class="centered">User.name</h5>
-                    
-                  <li class="mt">
-                      <a href="http://localhost:3000/user">
-                          <i class="fa fa-dashboard"></i>
-                          <span>Profile</span>
-                      </a>
-                  </li>
-
-                  <li class="mt">
-                      <i class="li_star"></i>
-                      <span> Influncer Score</span>
-                  </li>
-
-              </ul>
-              <!-- sidebar menu end-->
-          </div>
-      </aside>
+ 
       <!--sidebar end-->
       
+      <% if session[:user_id] %>
+
+        <%= erb :'sidebar' %>
+
+      <%end%>
      
 
   <%= yield %>

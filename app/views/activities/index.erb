@@ -11,9 +11,9 @@ this template will render all Activities in the Collection in a list -->
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
-<section id="main-content">
+<section id="main-content" <%= session[:user_id] ? "class='logged-in'" : "" %>>
   <section class="wrapper site-min-height">
-    <h3><i class="fa fa-angle-right"></i> Logged in sadad</h3>
+    <h3><i class="fa fa-angle-right"></i> Logged in</h3>
       <div class="row mt">
         <div class="col-lg-12">
 
@@ -23,11 +23,13 @@ this template will render all Activities in the Collection in a list -->
         <% if session[:user_id] %> 
           <div class="row mt">    
 
-            <a class="create" href="/users/<%= session[:user_id] %>/activities/new">
+            
               <div class="create_button">
-                <h4><span class="li_pen"></span> Create New Activity</h4>
+                <a href="/users/<%= session[:user_id] %>/activities/new">
+                <h3 class="create_title"><span class="li_pen"></span> Create New Activity</h3>
+                </a>
               </div>
-            </a>
+            
             
           </div>
         <% end %>
@@ -52,11 +54,10 @@ this template will render all Activities in the Collection in a list -->
                 <!-- this is a list item representing one Activity
                     it links to details page for that activity 
                     it will repeat itself for all activities -->
-                <a href="/activities/<%= activity.id %>">
-                  <div class="create_button">
+              
+              <div class="create_button">
                     <%= erb :'activities/show_short' %>
-                  </div>
-                </a>
+              </div>
                 <!-- end individual activity -->
               <% end %>
 
