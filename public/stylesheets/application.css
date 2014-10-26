@@ -2,9 +2,24 @@
   background-image: url(/img/bgg.png);
 }
 
+a:link {
+  color: #424A5D;
+}
+
+p {
+  font-size: 20px;
+}
 
 .logo {
   margin-left: 37px;
+}
+
+h1, h2 {
+  font-family: 'Lobster', cursive;
+}
+
+h3, h4, p {
+  font-family: 'Poiret One', cursive;
 }
 
 h1 {
@@ -52,6 +67,9 @@ div h1 {
   height: 210px;
 }
 
+.col-lg-12 {
+  margin-top: 40px;
+}
 
 .location h1 {
   text-align: center;
@@ -252,6 +270,7 @@ div h1 {
 
 .comment_text {
   width: 80%;
+  background-color: white;
 }
 
 .comments {
@@ -315,7 +334,7 @@ div h1 {
 }
 
 .new_review {
-  height: 240px;
+  height: 130px;
   position: relative;
   left: -10px
 }
