@@ -5,7 +5,7 @@ class Review < ActiveRecord::Base
 
 
   validate :rating_or_comment_exists
-  validate :cannot_rate_self
+  # before_save :cannot_rate_self
   validates :user_id, presence: true
   validates :activity_id, presence: true
 
@@ -18,15 +18,12 @@ class Review < ActiveRecord::Base
   end
 
   def cannot_rate_self
-    if activity_id
-      errors.add(:user_id, 'Cannot rate activity posted by self') if activity.user_id == user.id && !rating.nil?
-    end
+    rating = nil if activity.user_id == user.id
   end
 
   def update_activity
     activity.save_rating_by(user,rating) if rating 
   end
-
 
 end
 
