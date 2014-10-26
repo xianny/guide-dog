@@ -8,9 +8,11 @@
   <a class="title" href = "/activities/<%= @activity.id %>">
     <h3 class="rating_box"><%= @activity.rating %></h3>
     <h3 class="title"><%= @activity.title %></h3>
+
+      <%= erb :'/tags/show' %>
+
     <img class="activity_creator_avatar" src="<%= @activity.user.avatar%>">
   </a> 
-
 
 
 

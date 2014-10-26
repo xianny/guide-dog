@@ -50,7 +50,7 @@ class Activity < ActiveRecord::Base
 
   #returns String = filepath, to image representing cost e.g. "/img/cost-0.jpg" for free activity
   def cost_img
-    "/img/cost-#{self.cost}.jpg"
+    "/img/cost-#{self.cost}.png"
   end
 
   def find_common_tags(reviewer)
