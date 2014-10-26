@@ -50,7 +50,7 @@ end
 # Homepage (Root path)
 get '/' do
   @activity = Activity.new
-  erb :explore, layout: false
+  erb :explore
 end
 
 # Display nothing. Redirects to root

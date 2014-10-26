@@ -344,19 +344,23 @@ activities.each do |activity|
   activity.save
 end
 
+@activities = Activity.all
 
-# Each user reviews 5 random activities that they did not author
-users.each do |user|
-  activities = Activity.where("user_id != ?", user.id).take(2)
+def review_some_activities(user)
+  activities = @activities.sample(5)
   activities.each do |a|
     review = Review.create(
-        comment: "I am reviewing this activity with SO FUN! #{Faker::Lorem.paragraph} MUCH WOW! Tell friends wow much.",
-        rating: rand(4) + 1,
-        user_id: user.id,
-        activity_id: a.id
-      )
-    review.save if review.valid?
+      rating: rand(4)+1,
+      user_id: user.id,
+      activity_id: a.id,
+      comment:"I am reviewing this activity with SO FUN! #{Faker::Lorem.paragraph} MUCH WOW! Tell friends wow much."
+     )
+    review.save
   end
+end
+# Each user reviews 5 random activities that they did not author
+users.each do |user|
+    review_some_activities(user)
 end
 
 
