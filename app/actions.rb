@@ -15,12 +15,33 @@ helpers do
   def all_tags
      Tag.all
   end
- 
+
+  def explore_parameters
+    parameters = {}
+    if (!params[:at_home] && !params[:outdoor]) || params[:at_home] && params[:outdoor]
+      parameters[:at_home] = [true, false]
+    elsif params[:at_home] && !params[:outdoor]
+      parameters[:at_home] = true
+    elsif params[:outdoor] && !params[:at_home]
+      parameters[:at_home] = false
+    end
+
+    if (!params[:social] && !params[:solo]) || params[:social] && params[:solo]
+      parameters[:social] = [true, false]
+    elsif params[:social] && !params[:solo]
+      parameters[:social] = true
+    elsif params[:solo] && !params[:social]
+      parameters[:social] = false
+    end
+
+    parameters[:cost] = ( params[:cost].nil? ? [0,1,2,3] : params[:cost] )
+    parameters
+  end
 end
 
 # Homepage (Root path)
 get '/' do
-  erb :index
+  erb :explore, layout: false
 end
 
 # Display nothing. Redirects to root
@@ -184,9 +205,12 @@ post '/activities' do
   # generate collection of activities based on parameters
   # set as instance variable @activities
   # call erb: 'activities/index'
-  @search = {
-
-  }
-  @activities = Activity.all
+  tags = [params[:tag1],params[:tag2],params[:tag3]]
+  parameters = explore_parameters
+  @activities = Activity.where(
+    cost:     parameters[:cost],
+    at_home:  parameters[:at_home], 
+    social:   parameters[:social]
+  )
   erb :'activities/index'
 end
