@@ -13,93 +13,145 @@
 
 
  <!--main content start-->
-     <section id="main-content">
-          <section class="wrapper site-min-height">
-            <h3><i class="fa fa-angle-right"></i> Logged in sadad</h3>
-            <div class="row mt">
-              <div class="col-lg-12">
+<section id="main-content" 
 
-                  
-                <form action = "/users/<%= session[:user_id] %>/activities" method = "post">
-                   
+
+<%= session[:user_id] ? "class='logged-in'" : "" %>>
+
+  <section class="wrapper site-min-height">
+    <h3><a href="http://localhost:3000/users/1/activities">Back </a><i class="fa fa-angle-right"></i> Logged in</h3>
+      <div class="row mt">
+        <div class="col-lg-12">
+
+
+                <form class="new_activity inline-form" action = "/users/<%= session[:user_id] %>/activities" method = "post">
+
+
                     <div class="row mt">      
-                      <div class="create create_button">
-                        <h4><input type="text" value="<%= @activity.title %>" name="title" ></h4>
+                      <div class="create_input create_button">
+                        <h4><input placeholder="Enter Title here.." type="text" value="<%= @activity.title %>" class="no_border" name="title" ></h4>
                       </div>
                     </div>
 
 
+                  <div class="location">
+                    <h1>Location</h1>                                        
+                  </div>
+
+
                      <!-- display selectors for cost, social, at_home -->
+                  <div class="param_div">
 
-                  <input type="true/false " name="social">
-                        <img src=" " alt="social icon"/>
-                        <img src="" alt="alone icon" />
-                      
+                    <div>
+                      <select class="form-control" name="social">
+                        <option>
+                          <img src=" " alt="social icon"/>
+                          <h1>alone</h1>
+                        </option>
+                        <option>
+                          <img src=" " alt="alone icon" />
+                          <h2>group</h2>
+                        </option>
+                      </select>
+                    </div>
 
 
 
-                     
-                    <input type="true/false " name="at_home">
-                        <img src=" " alt="at home icon" />
-                        <img src="" alt="outdoors icon" />
-                
+                     <div>
+                      <select class="form-control" name="at_home">
+                        <option>
+                          <img src=" " alt="at home icon" />
+                          <h1>Indoor</h1>
+                        </option>
+                        <option>
+                          <img src=" " alt="outdoors icon" />
+                          <h1>Outdoor</h1>
+                        </option>
+                      </select>
+                    </div>
 
 
-            
-                      <img src= "<%= @activity.cost_img %>" />
-                       <input type="choose from 0, 1, 2, 3 " name="cost">
-                       <img src= "<%= @activity.cost_img %>" />
-                 
+                    <div>
+                      <select class="form-control" name="cost">
+                        <option>
+                          <img src= "<%= @activity.cost_img %>" alt="cost" />
+                          <h1>$</h1>
+                        </option>
+                        <option>
+                          <img src= "<%= @activity.cost_img %>" alt="cost2" />
+                          <h1>$$</h1>
+                        </option>
+                        <option>
+                          <img src= "<%= @activity.cost_img %>" alt="cost2" />
+                          <h1>$$$</h1>
+                        </option>
+                      </select>
+                    </div>
                     <!-- end icon display -->
-
+                  </div> <!-- end param_div -->
 
                     <!-- display tags -->
 
                 
-                    <input list="tags" name="tag1" multiple>
-                    <datalist id="tags">
-                      <% all_tags.each do |tag| %>
-                      <option value = "<%=tag.name%>">
-                      <% end %>
-                    </datalist>
-                    </input>
+                  <div class="tag_div">
 
-                     <input list="tags" name="tag2" multiple>
-                    <datalist id="tags">
-                      <% all_tags.each do |tag| %>
-                      <option value = "<%=tag.name%>">
-                      <% end %>
-                    </datalist>
-                    </input>
 
-                     <input list="tags" name="tag3" multiple>
-                    <datalist id="tags">
-                      <% all_tags.each do |tag| %>
-                      <option value = "<%=tag.name%>">
-                      <% end %>
-                    </datalist>
-                    </input>
+                    <div>
+                      <input list="tags" name="tag1" multiple>
+                        <p>Tag</p>
+                        <datalist id="tags">
+                          <% all_tags.each do |tag| %>
+                          <option value = "<%=tag.name%>">
+                          <% end %>
+                        </datalist>
+                      </input>
+                    </div>
 
+                    <div>
+                      <input list="tags" name="tag2" multiple>
+                        <p>Tag</p>
+                        <datalist id="tags">
+                          <% all_tags.each do |tag| %>
+                          <option value = "<%=tag.name%>">
+                          <% end %>
+                        </datalist>
+                      </input>
+                    </div>
+
+
+                    <div>
+                      <input list="tags" name="tag3" multiple>
+                        <p>Tag</p>
+                        <datalist id="tags">
+                          <% all_tags.each do |tag| %>
+                          <option value = "<%=tag.name%>">
+                          <% end %>
+                        </datalist>
+                      </input>
+                    </div>
+
+                  </div>
                     <!-- end tags -->
 
                       
                   <!-- submit new content -->
                   <div class="list_view">
                       <div class="list_text">
-                        <p>
-                          <input type="text" value="<%= @activity.content %>" name="content">
-                        </p>
+                      <h4>List</h4>
+                          <textarea placeholder="Enter List here.." class="text_input" type="text" rows="6" value="<%= @activity.content %>" name="content"></textarea> 
+                        <button type="submit" class="new_btn btn btn-default">Submit</button>
                       </div>
                   </div>
                   <!-- end submit -->
-
-                     
-                      
-                      
-
-                  </form>
+                </form>
                  
 
+
+                  <div class="divider"></div>
+
+                    <div>
+                      <h1>Old Activities</h1>
+                    </div>
 
                        <!-- content start div
                             display the rest of my posted activities  -->
@@ -151,22 +203,7 @@
 <!-- Collects input for new submission -->
 
     
-    
-      <div>
-        <input type="choose from 0, 1, 2, 3 " name="cost">
-      </div>
-      <div>
-        <input type="true/false " name="social">
-      </div>
-      <div>
-        <input type="true/false " name="at_home">
-      </div>
-      <div>
-        <input type="text" value="<%= @activity.location %>" name="location">
-      </div>
-      <div>
-        <input type="submit" value="Submit">
-      </div>
+
 
 
   <!-- end input form -->

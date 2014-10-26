@@ -21,7 +21,12 @@
     <link href="/lineicons/style.css" type="text/css" rel="stylesheet">
 
 
+
+
     <link rel="stylesheet" type="text/css" href="/stylesheets/application.css">
+
+
+ 
 
 
 
@@ -76,34 +81,14 @@
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
       <!--sidebar start-->
-      <aside>
-          <div id="sidebar" class="nav-collapse ">
-              <!-- sidebar menu start-->
-              <ul class="sidebar-menu" id="nav-accordion">
-              
-                  <p class="centered"><a href="profile.html"><img src="/img/doge.jpeg" class="img-circle" width="60"></a></p>
-                  <h5 class="centered">User.name</h5>
-                    
-                  <li class="mt">
-                      <a href="http://localhost:3000/user">
-                          <i class="fa fa-dashboard"></i>
-                          <span>Profile</span>
-                      </a>
-                  </li>
-
-                  <li class="mt">
-                      <a href="index.html">
-                          <i class="fa fa-dashboard"></i>
-                          <span>Influncer Score</span>
-                      </a>
-                  </li>
-
-              </ul>
-              <!-- sidebar menu end-->
-          </div>
-      </aside>
+ 
       <!--sidebar end-->
       
+      <% if session[:user_id] %>
+
+        <%= erb :'sidebar' %>
+
+      <%end%>
      
 
   <%= yield %>
