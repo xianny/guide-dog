@@ -16,7 +16,7 @@ helpers do
      Tag.all
   end
 
-  def explore_parameters
+  def convert_parameters
     parameters = {}
     if (!params[:at_home] && !params[:outdoor]) || params[:at_home] && params[:outdoor]
       parameters[:at_home] = [true, false]
@@ -34,13 +34,14 @@ helpers do
       parameters[:social] = false
     end
 
-    parameters[:cost] = ( params[:cost].nil? ? [0,1,2,3] : params[:cost] )
+    parameters[:cost] = ( params[:cost].nil? ? [0,1,2,3] : params[:cost].to_i )
     parameters
   end
 end
 
 # Homepage (Root path)
 get '/' do
+  @activity = Activity.new
   erb :explore, layout: false
 end
 
@@ -144,7 +145,7 @@ end
 
 # Create new activity
 post '/users/:u_id/activities' do
-  redirect "/activities" if params[:u_id] != session[:user_id]
+  redirect "/activities" if params[:user_id] != session[:user_id]
   @activity = Activity.new(
     user_id:  session[:user_id],
     title:    params[:title],
@@ -206,7 +207,7 @@ post '/activities' do
   # set as instance variable @activities
   # call erb: 'activities/index'
   tags = [params[:tag1],params[:tag2],params[:tag3]]
-  parameters = explore_parameters
+  parameters = convert_parameters
   @activities = Activity.where(
     cost:     parameters[:cost],
     at_home:  parameters[:at_home], 

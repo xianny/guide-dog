@@ -10,10 +10,22 @@
 
 
 <p>Cost</p><!-- boolean -->
-<input name="cost" type="radio"> no selection
-<input name="cost" type="radio" value="0"> free
-<input name="cost" type="radio" value="1"> $
-<input name="cost" type="radio" value="2"> $$
-<input name="cost" type="radio" value="3"> $$$<!-- pick from 0, 1, 2, 3 -->
+<select class="form-control" name="cost">
+    <option value="0">
+      <img src=" <%= @activity.cost_img %>" alt="free" />
+    </option>
+    <option value="1">
+      <img src= "<%= @activity.cost_img %>" alt="cost" />
+      <h1>$</h1>
+    </option>
+    <option value="2">
+      <img src= "<%= @activity.cost_img %>" alt="cost2" />
+      <h1>$$</h1>
+    </option>
+    <option value="3">
+      <img src= "<%= @activity.cost_img %>" alt="cost2" />
+      <h1>$$$</h1>
+    </option>
+  </select>
 <input type="submit" value="submit">
 </form>

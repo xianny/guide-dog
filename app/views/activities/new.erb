@@ -29,7 +29,7 @@
 
                     <div class="row mt">      
                       <div class="create_input create_button">
-                        <h4><input placeholder="Enter Title here.." type="text" value="<%= @activity.title %>" class="no_border" name="title" ></h4>
+                        <h4><input type="text" value="<%= @activity.title || "Enter title here..." %>" class="no_border" name="title" ></h4>
                       </div>
                     </div>
 
@@ -44,16 +44,20 @@
 
                     <div>
                       <select class="form-control" name="social">
-                        <option>
+                        <option value="true">
                           <img src=" " alt="social icon"/>
                           <h1>alone</h1>
                         </option>
-                        <option>
+                        <option value="false">
                           <img src=" " alt="alone icon" />
                           <h2>group</h2>
                         </option>
                       </select>
                     </div>
+                    <!-- use these instead? -->
+<!--                     <input name="social" type="radio" value="TRUE">Social
+                    <input name="social" type="radio" value="FALSE">Solo -->
+                    <!-- end options -->
 
 
 
@@ -69,20 +73,27 @@
                         </option>
                       </select>
                     </div>
+                    <!-- use these instead? -->
+<!--                     <input name="at_home" type="radio" value="TRUE">Indoors
+                    <input name="at_home" type="radio" value="FALSE">Outdoors -->
+                    <!-- end options -->
 
 
                     <div>
                       <select class="form-control" name="cost">
-                        <option>
-                          <img src= "<%= @activity.cost_img %>" alt="cost" />
+                        <option value="0">
+                          <img src="img/cost-0.jpg" alt="free" />
+                        </option>
+                        <option value="1">
+                          <img src= "img/cost-1.jpg" alt="cost" />
                           <h1>$</h1>
                         </option>
-                        <option>
-                          <img src= "<%= @activity.cost_img %>" alt="cost2" />
+                        <option value="2">
+                          <img src= "img/cost-2.jpg" alt="cost2" />
                           <h1>$$</h1>
                         </option>
-                        <option>
-                          <img src= "<%= @activity.cost_img %>" alt="cost2" />
+                        <option value="3">
+                          <img src= "img/cost-3.jpg" alt="cost2" />
                           <h1>$$$</h1>
                         </option>
                       </select>
@@ -138,7 +149,7 @@
                   <div class="list_view">
                       <div class="list_text">
                       <h4>List</h4>
-                          <textarea placeholder="Enter List here.." class="text_input" type="text" rows="6" value="<%= @activity.content %>" name="content"></textarea> 
+                          <textarea class="text_input" type="text" rows="6" value='<%= @activity.content || "Enter list here..." %>' name="content"></textarea> 
                         <button type="submit" class="new_btn btn btn-default">Submit</button>
                       </div>
                   </div>
