@@ -8,8 +8,9 @@ helpers do
   end
 
   # returns String
-  def get_username(id)
-    User.find(id).username || nil
+  def username_href(id)
+    user = User.find(id)
+    user ? "<a href='/users/#{id}'>#{user.username}</a>" : nil
   end
 
   def all_tags
@@ -101,6 +102,7 @@ post '/sessions' do
   ).first
   if @user
     session[:user_id] = @user.id 
+    session[:username] = @user.username
     redirect "/users/#{@user.id}"
   else
     @user = User.new(

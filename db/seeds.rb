@@ -22,7 +22,7 @@ tags = ['food', 'music', 'sports', 'shopping', 'lazy', 'adventurous', 'getting_s
 tags.each { |name| Tag.create(name: name) }
 tags = Tag.all
 # # Creates 30 new users
-10.times do
+20.times do
   FactoryGirl::create(:user)
 end
 
@@ -49,17 +49,17 @@ users.each do |user|
   end
 end
 
-# # Each user reviews 5 random activities that they did not author
-# users.each do |user|
-#   activities = Activity.where("user_id != ?", user.id).sample(2)
-#   activities.each do |a|
-#     review = a.reviews.create(
-#         comment: "This is what I think of this activity!! #{Faker::Lorem.paragraph} MUCH WOW! would do again.",
-#         rating: rand(5) + 1,
-#         user_id: user.id
-#       )
-#     review.save if review.valid?
-#   end
-# end
+# Each user reviews 5 random activities that they did not author
+users.each do |user|
+  activities = Activity.where("user_id != ?", user.id).sample(2)
+  activities.each do |a|
+    review = a.reviews.create(
+        comment: "This is what I think of this activity!! #{Faker::Lorem.paragraph} MUCH WOW! would do again.",
+        rating: rand(5) + 1,
+        user_id: user.id
+      )
+    review.save if review.valid?
+  end
+end
 
 
