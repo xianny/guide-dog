@@ -375,29 +375,24 @@ div h1 {
   height: 60px;
   width: 60px;
   margin: 10px;
-  
-
 }
 
 .icon_style img {
-  height: 60px;
-  width: 60px;
-
-
+  height: 40px;
 }
 
 .out img {
-  height: 40px;
+/*  height: 40px;
   width: 40px;
-  margin-top: 5px;
+  margin-top: 5px;*/
 
 }
 
 .house {
-  background-color: white;
+/*  background-color: white;
   border-radius: 100%;
   padding: 3px;
-  border: 1px solid black;
+  border: 1px solid black;*/
 }
 
 .don_burks img {
