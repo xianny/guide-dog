@@ -13,7 +13,7 @@
         <input name="at_home" type="checkbox" id="home">
       </div>
 
-        <div class="image_checkbox">
+      <div class="image_checkbox">
         <h1>Outdoor</h1>
           <img src="/img/social.jpg" title="outdoor1" id="outdoor1" class="">
         <input name="outdoor" type="checkbox" id="outdoor">
@@ -37,10 +37,12 @@
 
 
     <div>
-      <h1>Cost</h1><!-- boolean -->
-      <select class="form-control" name="cost">
+      <!-- boolean -->
+      <h1>Cost</h1>
+      <select class="form-control cost_check" name="cost">
           <option value="0">
-            <img src=" <%= @activity.cost_img %>" alt="free" />
+            <img src=" <%= @activity.cost_img %>" alt="free" >
+            Free  
           </option>
           <option value="1">
             <img src= "<%= @activity.cost_img %>" alt="cost" />

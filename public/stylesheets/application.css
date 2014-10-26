@@ -454,16 +454,29 @@ div h1 {
 .main_wrap {
   width: 100%;
   position: default;
-  height: 500px;
+  height: 100%;
+  text-align: center
+}
+
+.image_checkbox {
+  text-align: center;
 }
 
 
 .main_explore {
-  width: 20%;
-  top: 100px;
+  width: 80%;
   margin: 0 auto;
-  padding-top: 182px;
-  text-align: center;
+}
+
+
+.main_explore form {
+  position: absolute;
+  top: 200px;
+}
+
+.cost_check {
+  width: 300px;
+  margin: 20px auto;
 }
 
 
@@ -476,7 +489,7 @@ div h1 {
 
 
 .checked {
-  border: 15px dotted black;
+  border: 15px solid white;
 }
 
 
@@ -487,5 +500,9 @@ input[type="checkbox"]
 
 
 
+.image_checkbox {
+  width: 240px;
+  float: left;  
+}
 
 
