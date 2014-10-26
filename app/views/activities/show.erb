@@ -89,7 +89,7 @@
       
 
           <!-- TODO style div for new review submission -->
-          <% if session[:user_id] %>
+          <% if session[:user_id] && @activity.user.id != session[:user_id] %>
             <div class="new_review">
               <%= erb :'reviews/new' %>
             </div>

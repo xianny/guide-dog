@@ -123,6 +123,13 @@ end
 #### ACTIVITIES ####
 #### ---------- ####
 
+# Display form to create new activity (by current user)
+get '/activities/new' do
+  redirect '/sessions/new' if !session[:user_id]
+    @activity = Activity.new
+    erb :'activities/new'
+end
+
 # Display single activity
 get '/activities/:a_id' do 
   @activity = Activity.find(params[:a_id])
@@ -142,16 +149,10 @@ get '/users/:u_id/activities' do
   erb :'activities/index'  
 end
 
-# Display form to create new activity (by current user)
-get '/users/:u_id/activities/new' do
-  # if session[:user_id] == params[:user_id]
-    @activity = Activity.new
-    erb :'activities/new'
-  # end
-end
 
 # Create new activity
 post '/users/:u_id/activities' do
+  redirect '/' if session[:user_id] != params[:u_id].to_i
   @activity = Activity.create(
     user_id:  params[:u_id],
     title:    params[:title],
