@@ -444,6 +444,47 @@ div h1 {
 }
 
 
+.logout {
+  border: none;
+  background-color: none;
+}
+
+
+.main_wrap {
+  width: 100%;
+  position: default;
+  height: 500px;
+}
+
+
+.main_explore {
+  width: 20%;
+  top: 100px;
+  margin: 0 auto;
+  padding-top: 182px;
+  text-align: center;
+}
+
+
+#home1, #outdoor1, #social1, #solo1 {
+  height: 200px;
+  width: 200px;
+  border-radius: 100%;
+}
+
+
+
+.checked {
+  border: 15px dotted black;
+}
+
+
+input[type="checkbox"]
+{
+    display:none;
+}
+
+
 
 
 

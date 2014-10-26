@@ -2,30 +2,63 @@
   structure is similar to activities/index.erb
   collects data to search for activities -->
 
-<form action="/activities" method="post">
-<input name="at_home" type="checkbox">At home
-<input name="outdoor" type="checkbox">Outdoor
-<input name="social" type="checkbox">Social
-<input name="solo" type="checkbox"> solo<!-- boolean -->
+<div class="main_wrap">
+  <div class="main_explore">
+    
+    <form action="/activities" method="post" id="form1">
+    
+      <div class="image_checkbox">
+        <h1>At home</h1>
+          <img src="/img/alone.jpg" title="home1" id="home1" class="">
+        <input name="at_home" type="checkbox" id="home">
+      </div>
+
+        <div class="image_checkbox">
+        <h1>Outdoor</h1>
+          <img src="/img/social.jpg" title="outdoor1" id="outdoor1" class="">
+        <input name="outdoor" type="checkbox" id="outdoor">
+      </div>
+
+        <div class="image_checkbox">
+        <h1>Social</h1>
+          <img src="/img/alone.jpg" title="social1" id="social1" class="">
+        <input name="social" type="checkbox" id="social">
+      </div>
+
+        <div class="image_checkbox">
+        <h1>Solo</h1>
+          <img src="/img/alone.jpg" title="solo1" id="solo1" class="">
+        <input name="solo" type="checkbox" id="solo">
+      </div>
+
+    
+   <!-- boolean -->
 
 
-<p>Cost</p><!-- boolean -->
-<select class="form-control" name="cost">
-    <option value="0">
-      <img src=" <%= @activity.cost_img %>" alt="free" />
-    </option>s
-    <option value="1">
-      <img src= "<%= @activity.cost_img %>" alt="cost" />
-      <h1>$</h1>
-    </option>
-    <option value="2">
-      <img src= "<%= @activity.cost_img %>" alt="cost2" />
-      <h1>$$</h1>
-    </option>
-    <option value="3">
-      <img src= "<%= @activity.cost_img %>" alt="cost2" />
-      <h1>$$$</h1>
-    </option>
-  </select>
-<input type="submit" value="submit">
-</form>
+
+    <div>
+      <h1>Cost</h1><!-- boolean -->
+      <select class="form-control" name="cost">
+          <option value="0">
+            <img src=" <%= @activity.cost_img %>" alt="free" />
+          </option>
+          <option value="1">
+            <img src= "<%= @activity.cost_img %>" alt="cost" />
+            <h1>$</h1>
+          </option>
+          <option value="2">
+            <img src= "<%= @activity.cost_img %>" alt="cost2" />
+            <h1>$$</h1>
+          </option>
+          <option value="3">
+            <img src= "<%= @activity.cost_img %>" alt="cost2" />
+            <h1>$$$</h1>
+          </option>
+        </select>
+        </div>
+      <input class="btn btn-default" type="submit" value="submit">
+      </form>
+    </div>
+
+
+</div>
