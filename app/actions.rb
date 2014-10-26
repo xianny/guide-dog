@@ -123,6 +123,13 @@ end
 #### ACTIVITIES ####
 #### ---------- ####
 
+# Display form to create new activity (by current user)
+get '/activities/new' do
+  redirect '/sessions/new' if !session[:user_id]
+    @activity = Activity.new
+    erb :'activities/new'
+end
+
 # Display single activity
 get '/activities/:a_id' do 
   @activity = Activity.find(params[:a_id])
@@ -142,16 +149,10 @@ get '/users/:u_id/activities' do
   erb :'activities/index'  
 end
 
-# Display form to create new activity (by current user)
-get '/users/:u_id/activities/new' do
-  # if session[:user_id] == params[:user_id]
-    @activity = Activity.new
-    erb :'activities/new'
-  # end
-end
 
 # Create new activity
 post '/users/:u_id/activities' do
+  redirect '/' if session[:user_id] != params[:u_id].to_i
   @activity = Activity.create(
     user_id:  params[:u_id],
     title:    params[:title],
@@ -162,7 +163,12 @@ post '/users/:u_id/activities' do
     at_home:  to_bool(params[:at_home])
   )
   if @activity.save
-    redirect "users/#{params[:u_id]}"
+    tag_names = [params[:tag1],params[:tag2],params[:tag3]]
+    tags = Tag.where(name: tag_names)
+    tags.each do |tag|
+      @activity.tags << tag
+    end
+    redirect "activities/#{@activity.id}"
   else
     erb :'activities/new'
   end

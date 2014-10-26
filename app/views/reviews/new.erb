@@ -2,6 +2,23 @@
 @activity available as variable
 DOES NOT SHOW UP IF NOT LOGGED IN -->
 
+<!-- If submission was invalid, will display error messages. 
+                    This will not be rendered at all if there are no errors -->
+                    <% if @review.errors.any? %>
+                      <div class="error messages">
+                        
+                        <strong>Some issues with your submission, please fix them:</strong>
+                        <ul>
+                          <% @review.errors.full_messages.each do |error_message| %>
+                            <!-- single error message 
+                              this <li> will be repeated for each error -->
+                            <li><%= error_message %></li>
+                          <% end %>
+                        </ul>
+                      
+                      </div>
+                    <% end %>
+                    <!-- end error messages -->
 
 <div class="comment_input">
     
@@ -12,8 +29,12 @@ DOES NOT SHOW UP IF NOT LOGGED IN -->
   <!-- end log in -->
 
   <form>
+<<<<<<< HEAD
     <input value="ERB USER" type="hidden" name="author" placeholder="Text input">
     <textarea class="form-control comment_margin comment_text" rows="4"></textarea>
+=======
+    <textarea class="form-control comment_margin comment_text text_input" rows="4" name="user" placeholder="Rate or comment on this activity!"></textarea>
+>>>>>>> 15d278376fdae289c635f9fb38ddf46d1c2676e0
   <button type="submit" class="review_btn btn btn-default">Submit</button>
   </form>
 </div> 
