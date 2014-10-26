@@ -1,5 +1,8 @@
 #main-content {
-  background-image: url(/img/bgg.png);
+  background-image: url(/img/bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 a:link {
@@ -12,8 +15,13 @@ p {
 
 .logo {
   margin-left: 37px;
+  padding-left: 5%;
 }
 
+.logo-text {
+  font-weight: bold;
+  color: #fff;
+}
 
 h3, h4 {
   font-family: 'Lobster', sans-serif;
@@ -94,10 +102,6 @@ div h1 {
   text-align: center;
   padding: 36px;
 }
-
-
-
-
 
 
 .create_input {
@@ -224,14 +228,17 @@ div h1 {
 }
 
 
-.activity_creator_avatar {
-  height: 50px;
-  width: 50px;
-  background-color: white;
-  border-radius: 100%;
+.activity_author_avatar {
   position: absolute;
   top: 25px;
   right: 25px;
+  height: 60px;
+  width: 60px;
+}
+
+.img-circle {
+  background-color: white;
+  border-radius: 100%;
 }
 
 
@@ -369,8 +376,6 @@ div h1 {
 
 
 
-
-
 .icon_style {
   height: 60px;
   width: 60px;
@@ -490,6 +495,9 @@ input[type="checkbox"]{
 }
 
 
+#nav-accordion {
+  margin-top:75%;
+}
 
 .image_checkbox {
   width: 240px;
