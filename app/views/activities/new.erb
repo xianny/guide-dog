@@ -26,16 +26,34 @@
 
                 <form class="new_activity inline-form" action = "/users/<%= session[:user_id] %>/activities" method = "post">
 
+                  <!-- If submission was invalid, will display error messages. 
+                    This will not be rendered at all if there are no errors -->
+                    <% if @activity.errors.any? %>
+                      <div class="error messages">
+                        
+                        <strong>Some issues with your submission, please fix them:</strong>
+                        <ul>
+                          <% @activity.errors.full_messages.each do |error_message| %>
+                            <!-- single error message 
+                              this <li> will be repeated for each error -->
+                            <li><%= error_message %></li>
+                          <% end %>
+                        </ul>
+                      
+                      </div>
+                    <% end %>
+                    <!-- end error messages -->
+
 
                     <div class="row mt">      
                       <div class="create_input create_button">
-                        <h4><input type="text" value="<%= @activity.title || "Enter title here..." %>" class="no_border" name="title" ></h4>
+                        <h4><input type="text" placeholder="<%= @activity.title || "Enter title here..." %>" class="no_border" name="title" ></h4>
                       </div>
                     </div>
 
 
                   <div class="location">
-                    <h1>Location</h1>                                        
+                    <h1><input type="text" placeholder="<%= @activity.location || "Location" %>" class="no_border" name="location" ></h1>                                        
                   </div>
 
 
@@ -55,8 +73,8 @@
                       </select>
                     </div>
                     <!-- use these instead? -->
-<!--                     <input name="social" type="radio" value="TRUE">Social
-                    <input name="social" type="radio" value="FALSE">Solo -->
+                    <input name="social" type="radio" value="TRUE">Social
+                    <input name="social" type="radio" value="FALSE">Solo
                     <!-- end options -->
 
 
@@ -74,8 +92,8 @@
                       </select>
                     </div>
                     <!-- use these instead? -->
-<!--                     <input name="at_home" type="radio" value="TRUE">Indoors
-                    <input name="at_home" type="radio" value="FALSE">Outdoors -->
+                    <input name="at_home" type="radio" value="TRUE">Indoors
+                    <input name="at_home" type="radio" value="FALSE">Outdoors
                     <!-- end options -->
 
 
@@ -149,7 +167,7 @@
                   <div class="list_view">
                       <div class="list_text">
                       <h4>List</h4>
-                          <textarea class="text_input" type="text" rows="6" value='<%= @activity.content || "Enter list here..." %>' name="content"></textarea> 
+                          <textarea class="text_input" type="text" rows="6" placeholder="<%= @activity.content || 'Enter list here...' %>" name="content"></textarea> 
                         <button type="submit" class="new_btn btn btn-default">Submit</button>
                       </div>
                   </div>
@@ -224,27 +242,7 @@
 
 
 
-<div class="main container">
 
-  <!-- If submission was invalid, will display error messages. 
-  This <div> will not be rendered at all if there are no errors -->
-  <% if @activity.errors.any? %>
-    <div class="error messages">
-      
-      <strong>Some issues with your submission, please fix them:</strong>
-      <ul>
-        <% @activity.errors.full_messages.each do |error_message| %>
-          <!-- single error message 
-            this <li> will be repeated for each error -->
-          <li><%= error_message %></li>
-        <% end %>
-      </ul>
-    
-    </div>
-  <% end %>
-  <!-- end error messages -->
 
 
   
-
-</div>

@@ -37,6 +37,13 @@ helpers do
     parameters[:cost] = ( params[:cost].nil? ? [0,1,2,3] : params[:cost].to_i )
     parameters
   end
+
+  def to_bool(str)
+    case str
+    when "TRUE" then true
+    when "FALSE" then false
+    end
+  end
 end
 
 # Homepage (Root path)
@@ -145,18 +152,17 @@ end
 
 # Create new activity
 post '/users/:u_id/activities' do
-  redirect "/activities" if params[:user_id] != session[:user_id]
-  @activity = Activity.new(
-    user_id:  session[:user_id],
+  @activity = Activity.create(
+    user_id:  params[:u_id],
     title:    params[:title],
-    cost:     params[:cost],
+    cost:     params[:cost].to_i,
     location: params[:location],
     content:  params[:content],
-    social:   params[:social],
-    at_home:  params[:at_home]
+    social:   to_bool(params[:social]),
+    at_home:  to_bool(params[:at_home])
   )
   if @activity.save
-    redirect 'users/#{params[:u_id]}'
+    redirect "users/#{params[:u_id]}"
   else
     erb :'activities/new'
   end
