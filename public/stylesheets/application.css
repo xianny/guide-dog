@@ -331,3 +331,19 @@ div h1 {
 }
 
 
+
+.show_icons {
+  height: 200px;
+  width: 100%;
+}
+
+
+
+.icon_style {
+  height: 40px;
+  width: 40px;
+  background-color: orange;
+  border-radius: 100%;
+  margin: 10px;
+
+}

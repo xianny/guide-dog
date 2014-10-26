@@ -1,0 +1,46 @@
+<div class="show_icons">
+
+    <div class="icon_style">
+      <% if @activity.social %>
+        <img src=" " alt="social icon"/>
+      <% else %>
+        <img src="" alt="alone icon" />
+      <% end %>
+    </div>
+
+    <div class="icon_style">
+      <% if @activity.at_home %>
+        <img src=" " alt="at home icon" />
+      <% else %>
+        <img src="" alt="outdoors icon" />
+      <% end %>
+    </div>
+
+    <div class="icon_style">
+      <div class="cost">
+        <img src= "<%= @activity.cost_img %>" />
+      </div>
+    </div>
+      
+  </div>
+  <!-- end icon display -->
+
+
+  <!-- display tags -->
+  <div class="all_tags">
+    <ul>
+      
+      <li>
+        <% tags = @activity.tags %>
+      </li>
+      
+      <li>
+        <% tags.each do |tag| %>
+        <div class="individual tag"> 
+          <%= tag.name %>  
+        </div>
+        <% end %>
+      </li>
+
+    </ul>
+  </div>
