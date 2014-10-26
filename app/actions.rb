@@ -162,7 +162,12 @@ post '/users/:u_id/activities' do
     at_home:  to_bool(params[:at_home])
   )
   if @activity.save
-    redirect "users/#{params[:u_id]}"
+    tag_names = [params[:tag1],params[:tag2],params[:tag3]]
+    tags = Tag.where(name: tag_names)
+    tags.each do |tag|
+      @activity.tags << tag
+    end
+    redirect "activities/#{@activity.id}"
   else
     erb :'activities/new'
   end
