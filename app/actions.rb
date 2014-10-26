@@ -123,9 +123,9 @@ end
 
 # Create new activity
 post '/users/:u_id/activities' do
-  user = User.find(params[:u_id])
+  redirect "/activities" if params[:u_id] != session[:user_id]
   @activity = Activity.new(
-    user_id:  params[:u_id],
+    user_id:  session[:user_id],
     title:    params[:title],
     cost:     params[:cost],
     location: params[:location],
@@ -133,7 +133,7 @@ post '/users/:u_id/activities' do
     social:   params[:social],
     at_home:  params[:at_home]
   )
-  if activity.save
+  if @activity.save
     redirect 'users/#{params[:u_id]}'
   else
     erb :'activities/new'

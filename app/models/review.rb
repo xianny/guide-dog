@@ -1,4 +1,3 @@
-require_relative '../../config/environment'
 
 class Review < ActiveRecord::Base
   belongs_to :activity
