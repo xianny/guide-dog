@@ -1,14 +1,16 @@
-
+# require_relative '../../config/environment'
+require 'faker'
 
 class Activity < ActiveRecord::Base
   belongs_to :user
-  has_many :relevances
-  has_many :reviews
+  has_many :relevances, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   has_many :tags, through: :relevances
+
 
   before_validation :set_defaults, on: :create
 
-  # TODO after_save :update_author_tags
+  after_save :update_author_tags, on: :update
 
 
   validates :user_id, presence: true
@@ -19,14 +21,15 @@ class Activity < ActiveRecord::Base
   validates :location, presence: true 
 
   def update_author_tags
-    new_tags = unique_tags
-    new_tags.each do |tag|
+    unique_tags.each do |tag|
       user.tags << tag
     end
+    user.save
   end
 
   def unique_tags(user=self.user)
-    result = Set.new(self.tags) ^ Set.new(user.tags)
+    user_tags = user.tags
+    result = Set.new(self.tags) - user_tags
     result.to_a
   end
 
