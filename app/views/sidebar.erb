@@ -18,6 +18,13 @@
                       <span> Influncer Score</span>
                   </li>
 
+                  <li class="mt">
+                      <i class="li_star"></i>
+                      <span> Influncer Score</span>
+                      <% @tags = current_user.tags %>
+                      <%= erb :'tags/index' %>
+                  </li>
+
               </ul>
               <!-- sidebar menu end-->
           </div>
