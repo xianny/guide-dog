@@ -1,5 +1,8 @@
 #main-content {
-  background-image: url(/img/bgg.png);
+  background-image: url(/img/bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 a:link {
@@ -99,10 +102,6 @@ div h1 {
   text-align: center;
   padding: 36px;
 }
-
-
-
-
 
 
 .create_input {
