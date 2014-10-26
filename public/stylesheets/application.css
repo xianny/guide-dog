@@ -226,28 +226,32 @@ div h1 {
 */
 
 .comment_input {
-margin: 0 auto;
-height: 141px;
-width: 55%;
- background-color: blue; 
+  width: 70%;
+  height: 180px;
+  background-color: #F5CF72;
+  margin: 0 auto;
+  /* border-radius: 10px; */
+  position: relative;
+  top: -119px;
+  padding: 27px;
+  right: -10px;
 }
 
 
 .comment_avatar {
-  float: left;
+  position: absolute;
+  right: 38px;
 }
 
 .comment_avatar img {
   width: 80px;
   height: 80px;
   border-radius: 100%;
-  background-color: green;
+  background-color: white;
   position: relative;
-  top: 18px;
 }
 
 .comment_text {
-  float: right;
   width: 80%;
 }
 
@@ -312,13 +316,18 @@ width: 55%;
 }
 
 .new_review {
-  height: 140px;
+  height: 240px;
   position: relative;
   left: -10px
 }
 
 .individual_review {
   height: 180px;
+}
+
+.review_btn {
+  position: absolute;
+  bottom: 21px;
 }
 
 
