@@ -48,6 +48,7 @@ class Activity < ActiveRecord::Base
         total += review.rating
         num += 1
       end
+    end
     return "None" if num == 0
     (total/num).round(1)
   end
