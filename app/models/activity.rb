@@ -44,9 +44,12 @@ class Activity < ActiveRecord::Base
     total = 0.0
     num = 0
     reviews.each do |review|
-      total += review.rating if review.rating
-      num += 1
+      if review.rating
+        total += review.rating
+        num += 1
+      end
     end
+    return "None" if num == 0
     (total/num).round(1)
   end
 

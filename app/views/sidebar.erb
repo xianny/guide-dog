@@ -2,9 +2,10 @@
           <div id="sidebar" class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
+              <% @user = current_user %>
               
-                  <p class="centered"><a href="/users/<%= session[:user_id] %>"><img src="<%= current_user.avatar %>" class="img-circle" width="100"></a></p>
-                  <h5 class="centered">Welcome, <%= username_href(session[:user_id]) %></h5>
+                  <p class="centered"><a href="/users/<%= session[:user_id] %>"><img src="<%= @user.avatar %>" class="img-circle" width="100"></a></p>
+                  <h5 class="centered">Welcome, <a href="/users/<%= session[:user_id] %>"><%= @user.username %></a></h5>
                     
                   <li class="mt">
                       <a href="/users/<%= session[:user_id] %>">
@@ -13,13 +14,13 @@
                   </li>
 
                   <li class="mt">
-                      <h1>4.7</h1>
+                      <h1><%= @user.total_influence %></h1>
                       <i class="li_star">Influencer Score</i>
                   </li>
 
                   <li class="mt">
                       <i class="li_tag" style="color: white; font-size: 20px;">Used Tags</i><br/>
-                        <% @tags = current_user.tags %>
+                        <% @tags = @user.tags %>
                         <i style="color:white; text-align:center"><%= erb :'tags/index' %></i>
                   </li>
 
