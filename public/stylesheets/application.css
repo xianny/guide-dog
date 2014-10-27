@@ -466,10 +466,6 @@ div h1 {
   position: default;
   height: 1000px;
   text-align: center;
-  background-color: grey;
-  background-image: url(/img/bg.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .image_checkbox {
@@ -484,9 +480,9 @@ div h1 {
 
 
 .main_explore form {
-  height: 360px;
+  height: 450px;
   position: relative;
-  top: 360px;
+  top: 260px;
   background-color: rgba(255,255,255,.8);
   padding: 20px;
   border-radius: 5px;
