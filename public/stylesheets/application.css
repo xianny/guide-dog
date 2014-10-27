@@ -11,6 +11,7 @@ a:link {
 
 p {
   font-size: 20px;
+  color: black;
 }
 
 .logo {
@@ -63,7 +64,7 @@ div h1 {
 
 .logout {
   height: 30px;
-  margin-top: -55px;
+  margin-top: -157px;
   background-color: gray;
   color: #ddd;
 }
@@ -359,6 +360,7 @@ div h1 {
 
 .review_rating {
   width: 28px;
+  color: black;
 }
 
 .new_review {
