@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   # Returns total proficiency associated with the tag as Float
   def proficiency(tag)
     proficiency = proficiencies.where(tag_id: tag.id).first
-    proficiency.strength 
+    proficiency ? proficiency.strength : 0
   end
 
   # Variables: tag = Tag, reviewer = User, rating = Integer
@@ -41,6 +41,7 @@ class User < ActiveRecord::Base
     user_factor = reviewer.proficiency(tag)
 
     proficiency.modify_strength(rating, user_factor)
+    proficiency.save
   end
 
 end
