@@ -41,11 +41,16 @@ class Activity < ActiveRecord::Base
 
   # returns aggregated rating
   def rating
-    total = 0
+    total = 0.0
+    num = 0
     reviews.each do |review|
-      total += review.rating if review.rating
+      if review.rating
+        total += review.rating
+        num += 1
+      end
     end
-    total
+    return "None" if num == 0
+    (total/num).round(1)
   end
 
   #returns String = filepath, to image representing cost e.g. "/img/cost-0.jpg" for free activity
