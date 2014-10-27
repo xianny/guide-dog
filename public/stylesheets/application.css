@@ -456,8 +456,8 @@ input[type="radio"] {
 
 .login_form {
   position: absolute;
-  top: 0px;
-  left: 200px;
+  top: 200px;
+  left: 600px;
 }
 
 
@@ -547,16 +547,16 @@ ul.sidebar-menu li {
 
 <<<<<<< HEAD
 
-.logout_special {
+/*.logout_special {
   position: absolute;
   left: 200px;
-}
+}*/
 
-.login_form form {
+/*.login_form form {
   position: absolute;
   top: 300px;
   left: 600px;
-}
+}*/
 =======
 .explore_row {
   display: block;
