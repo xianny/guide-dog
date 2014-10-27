@@ -15,7 +15,7 @@ p {
 
 .logo {
   margin-left: 37px;
-  padding-left: 5%;
+  margin-left: 60px;
 }
 
 .logo-text {
@@ -23,13 +23,19 @@ p {
   color: #fff;
 }
 
-h3, h4 {
-  font-family: 'Lobster', sans-serif;
+h5 {
+  font-size: 20px;
 }
 
-h1 {
+h3, h4 {
+  font-family: 'Lobster', sans-serif;
+
+}
+
+h1, h5 {
   margin: 0 auto;
   font-family: 'Lobster', cursive;
+  color: white;
 }
 
 div h1 {
@@ -61,8 +67,8 @@ div h1 {
   background-color: gray;
   color: #ddd;
 }
-.location {
-
+.location input {
+  color: black
 }
 
 .activity {
@@ -246,10 +252,18 @@ div h1 {
   display: flex;
   justify-content: center;
   padding: 10px;
+  width: 50%;
+  margin: 0 auto;
 }
 
 .param_div div {
   margin: 5px;
+  font-size: 15px;
+  color: white;
+}
+
+.param_div div p {
+  color: white;
 }
 
 /*comment css 
@@ -336,6 +350,7 @@ div h1 {
   height: 80px;
   width: 80px;
   border: 1px solid black;
+  background-color: white;
   border-radius: 100%;
   top: 22px;
   left: 5%;

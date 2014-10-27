@@ -114,7 +114,7 @@
 
                     <div>
                       <input list="tags" name="tag1" multiple>
-                        <p>Tag</p>
+                        <p style="color:white">Tag</p>
                         <datalist id="tags">
                           <% all_tags.each do |tag| %>
                           <option value = "<%=tag.name%>">
@@ -125,7 +125,7 @@
 
                     <div>
                       <input list="tags" name="tag2" multiple>
-                        <p>Tag</p>
+                        <p style="color:white">Tag</p>
                         <datalist id="tags">
                           <% all_tags.each do |tag| %>
                           <option value = "<%=tag.name%>">
@@ -137,7 +137,7 @@
 
                     <div>
                       <input list="tags" name="tag3" multiple>
-                        <p>Tag</p>
+                        <p style="color:white">Tag</p>
                         <datalist id="tags">
                           <% all_tags.each do |tag| %>
                           <option value = "<%=tag.name%>">
@@ -153,7 +153,7 @@
                   <!-- submit new content -->
                   <div class="list_view">
                       <div class="list_text">
-                      <h4>List</h4>
+                      <h4 style="font-size: 30px">Activity</h4>
                           <textarea class="text_input" type="text" rows="6" placeholder="<%= @activity.content || 'Enter list here...' %>" name="content"></textarea> 
                         <button type="submit" class="new_btn btn btn-default">Submit</button>
                       </div>
