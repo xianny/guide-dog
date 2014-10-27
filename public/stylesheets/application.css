@@ -5,8 +5,16 @@
   background-attachment: fixed;
 }
 
-a:link {
+body a:link {
   color: #424A5D;
+}
+
+.topbar_explore a {
+  color: #fff;
+}
+
+#sidebar a {
+  color: #fff;
 }
 
 p {

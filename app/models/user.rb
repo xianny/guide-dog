@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   ## TODO validate and set default :avatar
 
   def total_influence
-    total = 0
+    total = 0.0
     num = 0
     activities.each do |activity|
       if activity.rating.kind_of?(Numeric)
@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
         num += 1
       end
     end
-    ((total/num) + activities.count).to_i
+    ((total/num) + activities.count).round(1)
   end
 
 
