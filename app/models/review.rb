@@ -22,7 +22,7 @@ class Review < ActiveRecord::Base
   end
 
   def update_activity
-    activity.save_rating_by(user,rating) if rating 
+    activity.save_rating_by(user,rating) if rating.kind_of?(Numeric)
   end
 
 end
