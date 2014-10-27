@@ -8,22 +8,19 @@
                     
                   <li class="mt">
                       <a href="/users/<%= session[:user_id] %>">
-                          <i class="fa fa-dashboard"></i>
-                          <span>Profile</span>
+                          <i><h1>Profile</h1></i>  
                       </a>
                   </li>
 
                   <li class="mt">
-                      <i class="li_star"></i>
-                      <span> Influencer Score</span>
+                      <h1>4.7</h1>
+                      <i class="li_star">Influencer Score</i>
                   </li>
 
                   <li class="mt">
-                      <i class="li_star"></i>
-                      <span>
+                      <i class="li_tag" style="color: white; font-size: 20px;">Used Tags</i><br/>
                         <% @tags = current_user.tags %>
-                        <%= erb :'tags/index' %>
-                      </span>
+                        <i style="color:white; text-align:center"><%= erb :'tags/index' %></i>
                   </li>
 
               </ul>
