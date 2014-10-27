@@ -50,6 +50,7 @@ end
 # Homepage (Root path)
 get '/' do
   @activity = Activity.new
+  binding.pry
   erb :explore
 end
 
@@ -136,7 +137,7 @@ end
 get '/activities/:a_id' do 
   @activity = Activity.find(params[:a_id])
   @review = Review.new
-  @reviews = @activity.reviews.order(created_at: :desc)
+  @reviews = @activity.reviews.order(created_at: :desc) 
   erb :'activities/show'
 end
 
