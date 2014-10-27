@@ -50,7 +50,6 @@ end
 # Homepage (Root path)
 get '/' do
   @activity = Activity.new
-  binding.pry
   erb :explore
 end
 
@@ -108,10 +107,9 @@ post '/sessions' do
   else
     @user = User.new(
       username: params[:username],
-      password: params[:password]
     )
     @user.errors[:sessions] << 'Something went wrong'
-    erb :'sessions/new', layout: false
+    erb :'sessions/new'
   end
 end
 

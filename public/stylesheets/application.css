@@ -15,6 +15,7 @@ body a:link {
 
 #sidebar a {
   color: #fff;
+  font-size: 30px;
 }
 
 p {
@@ -78,6 +79,11 @@ div h1 {
 }
 .location input {
   color: black
+}
+
+input[type="radio"] {
+  position: absolute;
+  bottom: 35px;
 }
 
 .activity {
@@ -450,8 +456,8 @@ div h1 {
 
 .login_form {
   position: absolute;
-  top: 400px;
-  left: 60%;
+  top: 0px;
+  left: 200px;
 }
 
 
@@ -539,6 +545,16 @@ ul.sidebar-menu li {
   height: 300px;
 }
 
+.logout_special {
+  position: absolute;
+  left: 200px;
+}
+
+.login_form form {
+  position: absolute;
+  top: 300px;
+  left: 600px;
+}
 .explore_row {
   display: block;
   clear: both;
