@@ -6,7 +6,7 @@
 
 <section id="main-content" <%= session[:user_id] ? "class='logged-in'" : "" %>>
   <section class="wrapper site-min-height">
-    <h3><a href="http://localhost:3000/users/1/activities">Back </a><i class="fa fa-angle-right"></i> Logged in</h3>
+    <h3><a href="http://localhost:3000/users/1/activities">Back </a><%= session[:user_id] ? "<i class='fa fa-angle-right'></i> Logged in" : "" %></h3>
       <div class="row mt">
         <div class="col-lg-12">
 

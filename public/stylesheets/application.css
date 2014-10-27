@@ -545,8 +545,6 @@ ul.sidebar-menu li {
   height: 300px;
 }
 
-<<<<<<< HEAD
-
 .logout_special {
   position: absolute;
   left: 200px;
@@ -557,11 +555,9 @@ ul.sidebar-menu li {
   top: 300px;
   left: 600px;
 }
-=======
 .explore_row {
   display: block;
   clear: both;
   padding-top: 30px;
   margin-top: -30px;
 }
->>>>>>> e6201b3ee87b66252123f7057decffdc320b2d88
