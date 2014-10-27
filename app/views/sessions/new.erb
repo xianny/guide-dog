@@ -7,7 +7,8 @@
         :password
     and POST to '/sessions' -->
 
-
+<section id="main-content" <%= session[:user_id] ? "class='logged-in'" : "" %>>
+  <section class="wrapper site-min-height">
 
     <div class="login_page">
 
@@ -38,7 +39,8 @@
 
 
 
-
+</section>
+</section>
 
 
 

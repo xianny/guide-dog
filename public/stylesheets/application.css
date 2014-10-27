@@ -448,13 +448,18 @@ input[type="radio"] {
 
 .login_page {
   position: relative;
-  height: 900px;
+  height: 100%;
   width: 100%;
+<<<<<<< HEAD
   background-image: url(/img/login_page.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 /*  background-color: lightblue;
 */  margin-bottom: 0;
+=======
+/*  background-color: lightblue;*/
+  margin-bottom: 0;
+>>>>>>> a1e2edd75aa4bda3339eff7592848304153a1e00
 }
 
 .doge {
@@ -469,11 +474,7 @@ input[type="radio"] {
   left: 370px;
 }
 
-.login_form {
-  position: absolute;
-  top: 200px;
-  left: 600px;
-}
+
 
 .login_form label {
   color: white;
@@ -574,19 +575,17 @@ ul.sidebar-menu li {
   height: 300px;
 }
 
-
-/*.logout_special {
-=======
+/*
 .logout_special {
   position: absolute;
   left: 200px;
-}
+}*/
 
-/*.login_form form {
+.login_form form {
   position: absolute;
   top: 300px;
-  left: 600px;
-}*/
+  left: 800px;
+}
 
 .explore_row {
   display: block;
