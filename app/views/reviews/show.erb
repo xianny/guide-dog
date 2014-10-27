@@ -5,9 +5,14 @@
   
   <div class="review_text"> 
 
-    <div class="review_rating li_star"><%= @review.rating %></div>
+    <% if @review.rating %>
+      <% @review.rating.times do %>
+        <div class="li_star review_rating" style="display:inline-block"></div>
+      <% end %>
+    <% end %>
+ 
     <p><%= @review.comment %></p>
-  </div>
+
   <div class="review_created_by">
     posted by <%= username_href(@review.user_id) %> at <%= @review.created_at %>
   </div>

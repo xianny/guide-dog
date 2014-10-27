@@ -323,7 +323,8 @@ tags = Tag.all
 end
 
 user = User.first
-user.username = 'test'
+user.username = 'don_burks'
+user.avatar = '/img/social.JPG'
 user.save
 
 users = User.all
