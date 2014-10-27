@@ -69,11 +69,15 @@ class Activity < ActiveRecord::Base
     common_tags = find_common_tags(reviewer)
     common_tags.each do |tag|
       relevance = relevances.where(tag_id: tag.id).first
-
       relevance.modify_strength(rating, reviewer.proficiency(tag))
-
+      relevance.save
       user.save_rating(tag, reviewer, rating)
     end
+  end
+
+  def relevance(tag)
+    relevance = relevances.where(tag_id: tag.id).first
+    relevance ? relevance.strength : 0
   end
 
 end
