@@ -438,10 +438,10 @@ input[type="radio"] {
 
 .login_page {
   position: relative;
-  height: 900px;
+  height: 100%;
   width: 100%;
-/*  background-color: lightblue;
-*/  margin-bottom: 0;
+/*  background-color: lightblue;*/
+  margin-bottom: 0;
 }
 
 .doge {
@@ -454,11 +454,7 @@ input[type="radio"] {
   top: 100px;
 }
 
-.login_form {
-  position: absolute;
-  top: 200px;
-  left: 600px;
-}
+
 
 
 .logout {
@@ -545,27 +541,16 @@ ul.sidebar-menu li {
   height: 300px;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-/*.logout_special {
-=======
 .logout_special {
->>>>>>> 1e503607b8b24a7ba6cb6b12efa0702e983e2b59
   position: absolute;
   left: 200px;
-}*/
+}
 
-/*.login_form form {
+.login_form form {
   position: absolute;
   top: 300px;
   left: 600px;
-<<<<<<< HEAD
-}*/
-=======
-=======
 }
->>>>>>> 1e503607b8b24a7ba6cb6b12efa0702e983e2b59
 .explore_row {
   display: block;
   clear: both;
