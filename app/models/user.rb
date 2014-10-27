@@ -14,6 +14,14 @@ class User < ActiveRecord::Base
     self.avatar = "/img/doge.jpeg" if avatar.nil?
   end
 
+  def total_influence
+    total = 0
+    activities.each do |activity|
+      total += activity.rating
+    end
+    total
+  end
+
   # Variables: tag = Tag
   # Returns total proficiency associated with the tag as Float
   def proficiency(tag)

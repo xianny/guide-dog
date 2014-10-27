@@ -32,6 +32,26 @@ DOES NOT SHOW UP IF NOT LOGGED IN -->
       Sign up or log in to post a comment or rating!
       <% end %>
     <textarea class="form-control comment_margin comment_text text_input" rows="4" name="comment" placeholder="Rate or comment on this activity!"></textarea>
+    <div class="rating" style="margin-right:0;display:inline-block">Rating
+    <table>
+    <tr>
+      <td><input type="radio" name="rating"></td>
+      <td><input type="radio" name="rating" value="1"></td>
+      <td><input type="radio" name="rating" value="2"></td>
+      <td><input type="radio" name="rating" value="3"></td>
+      <td><input type="radio" name="rating" value="4"></td>
+      <td><input type="radio" name="rating" value="5"></td>
+    </tr>
+    <tr>
+      <td>none</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+    </tr>
+    </table>
+    </div>
   <button type="submit" class="review_btn btn btn-default">Submit</button>
   </form>
 </div> 
