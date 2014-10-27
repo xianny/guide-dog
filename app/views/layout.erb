@@ -35,7 +35,9 @@
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 
 
-    
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+
+
 
 
 </head>
@@ -52,11 +54,11 @@
             <!--logo end-->
             
 
-            <div class="topbar_explore"><a href="/"><h1>Explore</h1></a></div>
+            <div class="topbar_explore"><h1 style="color: white; "><a href="/">Explore</a><a href="/activities"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;All Activities</h1></div>
 
             <div class="top-menu">
 
-            <div class="topbar_explore"><a href="/activities"><h1>All Activities</h1></a></div>
+         <!--    <div class="topbar_explore"><a href="/activities"><h1>All Activities</h1></a></div> -->
 
             <div class="top-menu">
 
@@ -96,11 +98,13 @@
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
       <!--sidebar start-->
+      <div class = "sidebar">
       <% if session[:user_id] %>
 
         <%= erb :'sidebar' %>
 
       <%end%>
+      </div>
       <!--sidebar end-->
       
      

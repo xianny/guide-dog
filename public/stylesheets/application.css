@@ -5,8 +5,16 @@
   background-attachment: fixed;
 }
 
-a:link {
+body a:link {
   color: #424A5D;
+}
+
+.topbar_explore a {
+  color: #fff;
+}
+
+#sidebar a {
+  color: #fff;
 }
 
 p {
@@ -524,4 +532,13 @@ input[type="checkbox"]{
 
 .topbar_explore {
   margin-top: 12px;
+}
+
+ul.sidebar-menu li {
+  margin-bottom: 30px;
+}
+
+#map {
+  width: 100%;
+  height: 300px;
 }

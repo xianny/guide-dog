@@ -5,26 +5,22 @@
               <% @user = current_user %>
               
                   <p class="centered"><a href="/users/<%= session[:user_id] %>"><img src="<%= @user.avatar %>" class="img-circle" width="100"></a></p>
-                  <h5 class="centered">Welcome, <a href="/users/<%= session[:user_id] %>"><%= @user.username %></a></h5>
+                  <h5 class="centered"><a href="/users/<%= session[:user_id] %>"><%= @user.username %></a></h5>
                     
                   <li class="mt">
-                      <a href="/users/<%= session[:user_id] %>">
-                          <i><h1>Profile</h1></i>  
-                      </a>
-                  </li>
-
-                  <li class="mt">
                       <h1><%= @user.total_influence %></h1>
-                      <i class="li_star">Influencer Score</i>
+                      <center><i class="li_star">Influence</i> <i class = "li_star"></i></center>
                   </li>
 
                   <li class="mt">
-                      <i class="li_tag" style="color: white; font-size: 20px;">Used Tags</i><br/>
+                      <i class="li_tag" style="color: white; font-size: 20px;"> Knows about...</i><br/>
                         <% @tags = @user.tags %>
                         <i style="color:white; text-align:center"><%= erb :'tags/index' %></i>
                   </li>
 
               </ul>
+
+              <div id="map">sda</div>
               <!-- sidebar menu end-->
           </div>
       </aside>

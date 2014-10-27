@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   ## TODO validate and set default :avatar
 
   def total_influence
-    total = 0
+    total = 0.0
     num = 0
     activities.each do |activity|
       if activity.rating.kind_of?(Numeric)
@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
         num += 1
       end
     end
-    ((total/num) + activities.count).to_i
+    ((total/num) + activities.count).round(1)
   end
 
 
@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   # Returns total proficiency associated with the tag as Float
   def proficiency(tag)
     proficiency = proficiencies.where(tag_id: tag.id).first
-    proficiency.strength 
+    proficiency ? proficiency.strength : 0
   end
 
   # Variables: tag = Tag, reviewer = User, rating = Integer
@@ -41,6 +41,7 @@ class User < ActiveRecord::Base
     user_factor = reviewer.proficiency(tag)
 
     proficiency.modify_strength(rating, user_factor)
+    proficiency.save
   end
 
 end

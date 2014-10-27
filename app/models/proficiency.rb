@@ -14,6 +14,6 @@ class Proficiency < ActiveRecord::Base
   end
 
   def modify_strength(rating, user_factor)
-    self.strength += (rating * user_factor * PROFICIENCY_MODIFIER)
+    self.strength += (rating * (user_factor + PROFICIENCY_MODIFIER))
   end
 end
