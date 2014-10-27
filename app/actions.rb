@@ -107,10 +107,9 @@ post '/sessions' do
   else
     @user = User.new(
       username: params[:username],
-      password: params[:password]
     )
     @user.errors[:sessions] << 'Something went wrong'
-    erb :'sessions/new', layout: false
+    erb :'sessions/new'
   end
 end
 
@@ -136,7 +135,7 @@ end
 get '/activities/:a_id' do 
   @activity = Activity.find(params[:a_id])
   @review = Review.new
-  @reviews = @activity.reviews.order(created_at: :desc)
+  @reviews = @activity.reviews.order(created_at: :desc) 
   erb :'activities/show'
 end
 

@@ -10,7 +10,7 @@ class Activity < ActiveRecord::Base
 
   before_validation :set_defaults, on: :create
 
-  after_save :update_author_tags, on: :update
+  after_save :update_author_tags
 
 
   validates :user_id, presence: true
