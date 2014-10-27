@@ -63,7 +63,7 @@ div h1 {
 
 .logout {
   height: 30px;
-  margin-top: 25%;
+  margin-top: -55px;
   background-color: gray;
   color: #ddd;
 }
@@ -520,3 +520,6 @@ input[type="checkbox"]{
 }
 
 
+.topbar_explore {
+  margin-top: 12px;
+}
