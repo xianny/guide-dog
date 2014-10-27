@@ -2,33 +2,40 @@
   structure is similar to activities/index.erb
   collects data to search for activities -->
 
+<section id="main-content" <%= session[:user_id] ? "class='logged-in'" : "" %>>
+  <section class="wrapper site-min-height">
+
 <div class="main_wrap">
   <div class="main_explore">
     
     <form action="/activities" method="post" id="form1">
     
-      <div class="image_checkbox">
-        <h1>At home</h1>
-          <img src="/img/solo.png" title="home1" id="home1" class="">
-        <input name="at_home" type="checkbox" id="home">
-      </div>
-
-      <div class="image_checkbox">
-        <h1>Outdoor</h1>
-          <img src="/img/outdoors.png" title="outdoor1" id="outdoor1" class="">
-        <input name="outdoor" type="checkbox" id="outdoor">
-      </div>
+      <div class="explore_row">
+        <div class="image_checkbox">
+          <h1>Indoors</h1>
+            <img src="/img/indoors.png" title="home1" id="home1" class="">
+          <input name="at_home" type="checkbox" id="home">
+        </div>
 
         <div class="image_checkbox">
-        <h1>Social</h1>
-          <img src="/img/social.png" title="social1" id="social1" class="">
-        <input name="social" type="checkbox" id="social">
+          <h1>Outdoors</h1>
+            <img src="/img/outdoors.png" title="outdoor1" id="outdoor1" class="">
+          <input name="outdoor" type="checkbox" id="outdoor">
+        </div>
       </div>
 
+      <div class="explore_row">
         <div class="image_checkbox">
-        <h1>Solo</h1>
-          <img src="/img/solo.png" title="solo1" id="solo1" class="">
-        <input name="solo" type="checkbox" id="solo">
+          <h1>Social</h1>
+            <img src="/img/social.png" title="social1" id="social1" class="">
+          <input name="social" type="checkbox" id="social">
+        </div>
+
+        <div class="image_checkbox">
+          <h1>Solo</h1>
+            <img src="/img/solo.png" title="solo1" id="solo1" class="">
+          <input name="solo" type="checkbox" id="solo">
+        </div>
       </div>
 
     
@@ -63,3 +70,7 @@
 
 
 </div>
+
+</section>
+
+</section>

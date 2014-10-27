@@ -9,9 +9,10 @@
   
   <div class="review_text"> 
 
-  
-    <% @review.rating.times do %>
-      <div class="li_star review_rating" style="display:inline-block"></div>
+    <% if @review.rating %>
+      <% @review.rating.times do %>
+        <div class="li_star review_rating" style="display:inline-block"></div>
+      <% end %>
     <% end %>
  
     <p><%= @review.comment %></p>

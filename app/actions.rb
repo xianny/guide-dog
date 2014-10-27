@@ -136,6 +136,7 @@ end
 get '/activities/:a_id' do 
   @activity = Activity.find(params[:a_id])
   @review = Review.new
+  @reviews = @activity.reviews.order(created_at: :desc)
   erb :'activities/show'
 end
 
@@ -190,7 +191,7 @@ post '/activities/:a_id/reviews' do
     comment:      params[:comment].gsub(/\*/," "),
     rating:       params[:rating],
     activity_id:  params[:a_id].to_i,
-    user_id:      session[:user_id] 
+    user_id:      session[:user_id].to_i 
   )
   if @review.save
     redirect "/activities/#{params[:a_id]}"
