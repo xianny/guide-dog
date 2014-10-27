@@ -60,7 +60,7 @@ class Activity < ActiveRecord::Base
 
   def find_common_tags(reviewer)
     result = Set.new(tags & reviewer.tags)
-    result.to_a
+    result.to_a.uniq!
   end
 
   # Variables: reviewer = User object, rating = (Integer)
