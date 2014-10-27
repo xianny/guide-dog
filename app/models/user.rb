@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   ## TODO validate and set default :avatar
 
   def total_influence
-    total = 0.0
+    total = 0
     num = 0
     activities.each do |activity|
       if activity.rating.kind_of?(Numeric)
@@ -19,20 +19,12 @@ class User < ActiveRecord::Base
         num += 1
       end
     end
-    (total/num) + activities.count
+    ((total/num) + activities.count).to_i
   end
 
 
   def set_default_avatar
     self.avatar = "/img/doge.jpeg" if avatar.nil?
-  end
-
-  def total_influence
-    total = 0
-    activities.each do |activity|
-      total += activity.rating
-    end
-    total
   end
 
   # Variables: tag = Tag
